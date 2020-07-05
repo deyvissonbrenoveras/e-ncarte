@@ -18,9 +18,7 @@ const parceiroRouter = require("./routes/parceiroRouter");
 const auth = require("./controllers/authController");
 
 //Cors
-app.use(cors({
-    origin: "*"
-}))
+app.use(cors())
 //Mongodb
 mongoose.connect(process.env.DB_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true },
     (error)=>{
@@ -45,6 +43,7 @@ app.use((req, res, next) => { //Cria um middleware onde todas as requests passam
 
 //Rotas estáticas
 app.use("/", express.static("./public"));
+app.use("/loja", express.static("./React/build"));
 //Rota site
 app.use("/", siteRouter);
 

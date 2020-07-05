@@ -39,8 +39,9 @@ class Loja extends Component{
     async componentDidMount(){
         const response = await api.get("/cliente");
         const {dispatch} = this.props;
-        let data = response.data[1];
+        let data = response.data[0];
         console.log(response)
+        console.log(data)
         if (data.produtos){
             data.produtos = data.produtos.map(produto => ({
                 ...produto,

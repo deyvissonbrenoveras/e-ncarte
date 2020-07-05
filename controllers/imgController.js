@@ -1,8 +1,8 @@
 const fs = require("fs");
 const compress_images = require("compress-images");
 const path = require("path");
-const TEMP_PATH = path.join(__dirname, "/../img/temp/");
-const CLIENTE_LOGO_FOLDER = path.join(__dirname + "/../img/logos/");
+const TEMP_PATH = path.join(__dirname, "/../public/img/temp/");
+const CLIENTE_LOGO_FOLDER = path.join(__dirname + "/../public/img/logos/");
 const salvarImg = function (base64String, imgFolder, filePath){
     
     //Remova a primeira parte da string base64 para poder salvar o arquivo

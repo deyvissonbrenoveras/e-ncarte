@@ -1,7 +1,7 @@
 const Cliente = require("../models/Cliente");
 const imgController = require("./imgController");
 const path = require("path");
-const PRODUTO_IMG_FOLDER = path.join(__dirname + "/../img/produtos/");
+const PRODUTO_IMG_FOLDER = path.join(__dirname + "/../public/img/produtos/");
 const fs = require("fs");
 
 

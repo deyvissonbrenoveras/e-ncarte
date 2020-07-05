@@ -21,7 +21,7 @@ const inserirParceiro = async (req, res)=>{
         let parceiro = cliente.parceiros.create(novoParceiro);
 
         let logo = `${idCliente}-${parceiro._id}.${req.files.logo.name.split(".").pop()}`;
-        let parceirosPath = path.join(__dirname, `../img/parceiros/${logo}`);
+        let parceirosPath = path.join(__dirname, `../public/img/parceiros/${logo}`);
         req.files.logo.mv(parceirosPath, err=>{
             if (err){
                 console.log(err)
@@ -49,7 +49,7 @@ const editarOuExcluirParceiro = (req, res)=>{
     if (parceiro.action ==  "excluir"){
         Cliente.findOne({_id: idCliente}, (err, cliente)=>{
             logo = cliente.parceiros.id(parceiro._id).logo;
-            fs.unlink(path.join(__dirname, "../img/parceiros/" + logo), ()=>{});
+            fs.unlink(path.join(__dirname, "../public/img/parceiros/" + logo), ()=>{});
             cliente.parceiros.pull(parceiro._id);            
             cliente.save();
             return res.redirect("/admin/editarcliente?idCliente=" + idCliente);
@@ -75,7 +75,7 @@ const editarOuExcluirParceiro = (req, res)=>{
             //Salva a nova logo caso enviada
             if (req.files){
                 parceiro.logo = `${idCliente}-${parceiro._id}.${req.files.logo.name.split(".").pop()}`;
-                let parceirosPath = path.join(__dirname, `../img/parceiros/${parceiro.logo}`);
+                let parceirosPath = path.join(__dirname, `../public/img/parceiros/${parceiro.logo}`);
                 req.files.logo.mv(parceirosPath, err=>{
                     if (err){
                         console.log(err)

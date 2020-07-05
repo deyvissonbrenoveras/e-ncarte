@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/react/static/js/main.009ce2ee.chunk.js",
-    "main.js.map": "/react/static/js/main.009ce2ee.chunk.js.map",
-    "runtime-main.js": "/react/static/js/runtime-main.909b34da.js",
-    "runtime-main.js.map": "/react/static/js/runtime-main.909b34da.js.map",
-    "static/js/2.8d01d4b7.chunk.js": "/react/static/js/2.8d01d4b7.chunk.js",
-    "static/js/2.8d01d4b7.chunk.js.map": "/react/static/js/2.8d01d4b7.chunk.js.map",
-    "index.html": "/react/index.html",
-    "precache-manifest.02b05a69c67d8c67327c39ac5b2757bb.js": "/react/precache-manifest.02b05a69c67d8c67327c39ac5b2757bb.js",
-    "service-worker.js": "/react/service-worker.js",
-    "static/js/2.8d01d4b7.chunk.js.LICENSE.txt": "/react/static/js/2.8d01d4b7.chunk.js.LICENSE.txt",
-    "static/media/logo.png": "/react/static/media/logo.77b303cd.png",
-    "static/media/whatsapp.webp": "/react/static/media/whatsapp.3148f0ac.webp"
+    "main.js": "/loja/static/js/main.e393cd16.chunk.js",
+    "main.js.map": "/loja/static/js/main.e393cd16.chunk.js.map",
+    "runtime-main.js": "/loja/static/js/runtime-main.7ae83380.js",
+    "runtime-main.js.map": "/loja/static/js/runtime-main.7ae83380.js.map",
+    "static/js/2.337fd9e2.chunk.js": "/loja/static/js/2.337fd9e2.chunk.js",
+    "static/js/2.337fd9e2.chunk.js.map": "/loja/static/js/2.337fd9e2.chunk.js.map",
+    "index.html": "/loja/index.html",
+    "precache-manifest.bc6b79949b17e41d4ee1a9026e2f3da5.js": "/loja/precache-manifest.bc6b79949b17e41d4ee1a9026e2f3da5.js",
+    "service-worker.js": "/loja/service-worker.js",
+    "static/js/2.337fd9e2.chunk.js.LICENSE.txt": "/loja/static/js/2.337fd9e2.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/loja/static/media/logo.77b303cd.png",
+    "static/media/whatsapp.webp": "/loja/static/media/whatsapp.3148f0ac.webp"
   },
   "entrypoints": [
-    "static/js/runtime-main.909b34da.js",
-    "static/js/2.8d01d4b7.chunk.js",
-    "static/js/main.009ce2ee.chunk.js"
+    "static/js/runtime-main.7ae83380.js",
+    "static/js/2.337fd9e2.chunk.js",
+    "static/js/main.e393cd16.chunk.js"
   ]
 }

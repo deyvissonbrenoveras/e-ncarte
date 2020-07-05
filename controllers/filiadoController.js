@@ -1,7 +1,7 @@
 const Cliente = require("../models/Cliente");
 const imgController = require("./imgController");
 const path = require("path");
-const FILIADO_IMG_FOLDER = path.join(__dirname, "/../img/filiados/");
+const FILIADO_IMG_FOLDER = path.join(__dirname, "/../public/img/filiados/");
 const fs = require("fs");
 
 const inserir = async (req, res)=>{

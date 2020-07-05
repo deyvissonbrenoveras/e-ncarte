@@ -12,7 +12,7 @@ export default function Header(){
             <img src={logo} alt="e-ncarte"/>
              <Menu>
                 <li><Link to="/carrinho"><FaShoppingCart size="20px" color={"var(--cor-padrao)"}/></Link></li>
-                <li><Link to="/react">Loja</Link></li>
+                <li><Link to="/loja">Loja</Link></li>
                 <li><Link to="/contato">Contact</Link></li>
             </Menu>
         </Container>
