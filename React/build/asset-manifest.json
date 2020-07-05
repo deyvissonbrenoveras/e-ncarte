@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/react/static/js/main.009ce2ee.chunk.js",
+    "main.js.map": "/react/static/js/main.009ce2ee.chunk.js.map",
+    "runtime-main.js": "/react/static/js/runtime-main.909b34da.js",
+    "runtime-main.js.map": "/react/static/js/runtime-main.909b34da.js.map",
+    "static/js/2.8d01d4b7.chunk.js": "/react/static/js/2.8d01d4b7.chunk.js",
+    "static/js/2.8d01d4b7.chunk.js.map": "/react/static/js/2.8d01d4b7.chunk.js.map",
+    "index.html": "/react/index.html",
+    "precache-manifest.02b05a69c67d8c67327c39ac5b2757bb.js": "/react/precache-manifest.02b05a69c67d8c67327c39ac5b2757bb.js",
+    "service-worker.js": "/react/service-worker.js",
+    "static/js/2.8d01d4b7.chunk.js.LICENSE.txt": "/react/static/js/2.8d01d4b7.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/react/static/media/logo.77b303cd.png",
+    "static/media/whatsapp.webp": "/react/static/media/whatsapp.3148f0ac.webp"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.909b34da.js",
+    "static/js/2.8d01d4b7.chunk.js",
+    "static/js/main.009ce2ee.chunk.js"
+  ]
+}

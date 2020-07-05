@@ -1,0 +1,758 @@
+{
+    "cliente": {
+        "_id": "5e9668b9b2399b00137d9fe0",
+    "nome": "Rede Sertaneja",
+    "nomeUrl": "redesertaneja",
+    "logo": "redesertaneja.jpeg",
+    "imagemCampanha": "redesertaneja-Campanha.jpeg",
+    "whatsapp": "83999999999",
+    "produtos": [
+      {
+        "_id": "5eec0b6a12735f00228bd5e5",
+        "descricao": "Filé de Peito Individual 1kg",
+        "preco": 8.99,
+        "destaque": true,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47d75183bee0017a024cf.jpeg"
+      },
+      {
+        "_id": "5eebf48e12735f00228bd589",
+        "descricao": "Cupum Bovino 1kg",
+        "preco": 21.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec464a364b97a0018bd7a47.jpeg",
+        "destaque": true
+      },
+      {
+        "_id": "5eebf51112735f00228bd58a",
+        "descricao": "Linguiça Aurora Churrasco 1kg",
+        "preco": 14.49,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec4654164b97a0018bd7a48.jpeg",
+        "destaque": true
+      },
+      {
+        "_id": "5eebf77812735f00228bd593",
+        "descricao": "Café Santa Clara 250g",
+        "preco": 3.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec4700464b97a0018bd7a5a.jpeg",
+        "destaque": true
+      },
+      {
+        "_id": "5ec46eb764b97a0018bd7a56",
+        "descricao": "Flocão São Braz 500g",
+        "preco": 1.19,
+        "destaque": true,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec46e8e64b97a0018bd7a55.png"
+      },
+      {
+        "_id": "5eebf60212735f00228bd58d",
+        "descricao": "Café Nordestino  250g",
+        "preco": 3.45,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec46e1864b97a0018bd7a52.jpeg",
+        "destaque": true
+      },
+      {
+        "_id": "5eebf8e812735f00228bd59d",
+        "descricao": "Lamém Marinar ",
+        "preco": 0.85,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec46f8164b97a0018bd7a58.jpeg"
+      },
+      {
+        "_id": "5eebf8f812735f00228bd59e",
+        "descricao": "Macarrão Fortaleza Ninho ou Parafuso com Ovos 500g",
+        "preco": 3.55,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec4719d3aa84d0017bd8235.jpeg"
+      },
+      {
+        "_id": "5eebf8ca12735f00228bd59b",
+        "descricao": "Açucar Cristal Sorriso 1kg",
+        "preco": 2.25,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec46e7764b97a0018bd7a53.jpeg"
+      },
+      {
+        "_id": "5eebfb6c12735f00228bd5a5",
+        "descricao": "Cachaça Ipueira Cristal 355 ml",
+        "preco": 5.89,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48a6b183bee0017a02508.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfbd012735f00228bd5a8",
+        "descricao": "Canjiquinha São Braz Alm. 200g",
+        "preco": 3.35,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47453183bee0017a024b2.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfc4512735f00228bd5aa",
+        "descricao": "Flocos Claramil 500g",
+        "preco": 1.09,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47508183bee0017a024b6.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfc9b12735f00228bd5ac",
+        "descricao": "Achocolatado Powerlate 800g",
+        "preco": 7.29,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47585183bee0017a024b7.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfcee12735f00228bd5af",
+        "descricao": "Aerosol Nivea",
+        "preco": 7.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec475f1183bee0017a024b8.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebff9a12735f00228bd5bd",
+        "descricao": "Cachaça Ipueira Umburana 250 ml",
+        "preco": 6.59,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47949183bee0017a024c2.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfd6c12735f00228bd5b2",
+        "descricao": "Sandálias Havaianas Collor",
+        "preco": 9.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec476de183bee0017a024b9.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec16c812735f00228bd5ff",
+        "descricao": "Detergente em Pó Omo Lavagem Perfeita 400g",
+        "preco": 4.49,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec477de183bee0017a024bd.jpeg"
+      },
+      {
+        "_id": "5eebfe4912735f00228bd5b7",
+        "descricao": "Sabonete Liq. Cheveux 1L",
+        "preco": 13.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec4779c183bee0017a024bc.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfeda12735f00228bd5ba",
+        "descricao": "Álcool Gel 70% Marilux 500g",
+        "preco": 8.49,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec478d1183bee0017a024c0.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec00fe12735f00228bd5c4",
+        "descricao": "Wisky Ballantines Finest 750 ml",
+        "preco": 46.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47b2c183bee0017a024c8.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec026a12735f00228bd5ca",
+        "descricao": "Ling. Miranda (Nordestina Ou Carne de Sol) 600g",
+        "preco": 13.89,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47a09183bee0017a024c5.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec02f812735f00228bd5cd",
+        "descricao": "Macaxeira Cong. Miranda 1kg",
+        "preco": 4.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47ba9183bee0017a024c9.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec036b12735f00228bd5ce",
+        "descricao": "Ling. de Frango C. Vale 1kg",
+        "preco": 12.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47c0e183bee0017a024ca.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec175212735f00228bd600",
+        "descricao": "Galinha Pesada Madaló 1kg",
+        "preco": 5.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47d59183bee0017a024ce.jpeg"
+      },
+      {
+        "_id": "5eec048712735f00228bd5d0",
+        "descricao": "Frango a Passarinha Copagril 1kg ",
+        "preco": 9.59,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47ffc183bee0017a024dc.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec058712735f00228bd5d3",
+        "descricao": "Peito de Frango Individual 1kg",
+        "preco": 6.89,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48043183bee0017a024dd.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec176e12735f00228bd601",
+        "descricao": "Carne Moida  Fortiboi 500g",
+        "preco": 4.19,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47dcb183bee0017a024d0.jpeg"
+      },
+      {
+        "_id": "5eec064f12735f00228bd5d6",
+        "descricao": "Coxa de Frango Individual 1kg",
+        "preco": 6.79,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48101183bee0017a024e1.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec06c812735f00228bd5da",
+        "descricao": "Batata Pré-Frita Golden Fries 2,0kg",
+        "preco": 17.49,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47e7d183bee0017a024d5.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec10b312735f00228bd5f4",
+        "descricao": "Requeijão Isis Tradicional ",
+        "preco": 4.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec10b312735f00228bd5f4.jpeg"
+      },
+      {
+        "_id": "5eec17bb12735f00228bd602",
+        "descricao": "Bebida Láctea Isis 1L",
+        "preco": 3.19,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec100912735f00228bd5f2.jpeg"
+      },
+      {
+        "_id": "5eec117312735f00228bd5f7",
+        "descricao": "Iogurte Isis 180g",
+        "preco": 1.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec117312735f00228bd5f7.jpeg"
+      },
+      {
+        "_id": "5eec10ca12735f00228bd5f5",
+        "descricao": "Frutisis 150g",
+        "preco": 2.19,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec10ca12735f00228bd5f5.jpeg"
+      },
+      {
+        "_id": "5eec0a2312735f00228bd5e2",
+        "descricao": "Isinho 360g",
+        "preco": 4.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48391183bee0017a024ee.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5ec48307183bee0017a024eb",
+        "descricao": "Sorvete Sterbom 2L",
+        "preco": 13.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48307183bee0017a024eb.png"
+      },
+      {
+        "_id": "5eec0ad512735f00228bd5e3",
+        "descricao": "Açaí Sterbom 1L",
+        "preco": 13.49,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48602183bee0017a024f7.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec0b8b12735f00228bd5e6",
+        "descricao": "Pippo's Sabores 60g",
+        "preco": 1.69,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec0b8b12735f00228bd5e6.jpeg"
+      },
+      {
+        "_id": "5eec12ca12735f00228bd5fa",
+        "descricao": "Granola São Braz 250g ",
+        "preco": 6.29,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec12ca12735f00228bd5fa.jpeg"
+      },
+      {
+        "_id": "5eec133512735f00228bd5fb",
+        "descricao": "Batata Scrusch Palha 80g",
+        "preco": 3.29,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec133512735f00228bd5fb.jpeg"
+      },
+      {
+        "_id": "5eec0ce712735f00228bd5e9",
+        "descricao": "Batata Frita San Chips 55g",
+        "preco": 3.39,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec0ce712735f00228bd5e9.jpeg"
+      },
+      {
+        "_id": "5eec0d3812735f00228bd5ea",
+        "descricao": "Salgadinhos Sanditos 30g",
+        "preco": 1.09,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec0d3812735f00228bd5ea.jpeg"
+      },
+      {
+        "_id": "5eec0d7a12735f00228bd5eb",
+        "descricao": "Bolacha Vó Ita 220g",
+        "preco": 3.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec0d7a12735f00228bd5eb.jpeg"
+      },
+      {
+        "_id": "5eec11c612735f00228bd5f8",
+        "descricao": "Milho de Pipoca Nordestino 500g",
+        "preco": 2.09,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec11c612735f00228bd5f8.jpeg"
+      },
+      {
+        "_id": "5eec153112735f00228bd5fe",
+        "descricao": "Polpa Nossa Fruta 200g (Cajú, Acerola, Goiaba)",
+        "preco": 1.69,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf86d12735f00228bd598.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec072a12735f00228bd5dc",
+        "descricao": "Italakinho 200ml",
+        "preco": 0.95,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec072a12735f00228bd5dc.jpeg"
+      },
+      {
+        "_id": "5eec06fb12735f00228bd5db",
+        "descricao": "Creme de Leite Italac 200g",
+        "preco": 1.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec06fb12735f00228bd5db.jpeg"
+      },
+      {
+        "_id": "5eec06b512735f00228bd5d9",
+        "descricao": "Margarina Primor 500g",
+        "preco": 3.59,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec06b512735f00228bd5d9.jpeg"
+      },
+      {
+        "_id": "5eec067912735f00228bd5d7",
+        "descricao": "Manteiga Natural da Vaca 200g",
+        "preco": 5.75,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec067912735f00228bd5d7.jpeg"
+      },
+      {
+        "_id": "5eec05a812735f00228bd5d4",
+        "descricao": "Leite Condensado Italac 395g",
+        "preco": 3.69,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec00ad12735f00228bd5c2.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec188112735f00228bd603",
+        "descricao": "Farinha Quebradinha Serrana 500g",
+        "preco": 3.49,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48699183bee0017a024fa.png"
+      },
+      {
+        "_id": "5eec028b12735f00228bd5cb",
+        "descricao": "Massa de Mandioca Serrana 500g",
+        "preco": 4.19,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48975183bee0017a02507.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec023912735f00228bd5c9",
+        "descricao": "Goma de Tapioca Serrana 500g",
+        "preco": 3.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec4864b183bee0017a024f8.png"
+      },
+      {
+        "_id": "5eec01b612735f00228bd5c8",
+        "descricao": "Chocolatto 3 Corações 400g",
+        "preco": 4.79,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec01b612735f00228bd5c8.jpeg"
+      },
+      {
+        "_id": "5eec18bf12735f00228bd604",
+        "descricao": "Refresco Frisco 25g",
+        "preco": 0.75,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec011f12735f00228bd5c5.jpeg"
+      },
+      {
+        "_id": "5eec013a12735f00228bd5c6",
+        "descricao": "Café com Leite Santa Clara 330g",
+        "preco": 8.39,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec013a12735f00228bd5c6.jpeg"
+      },
+      {
+        "_id": "5eec00e912735f00228bd5c3",
+        "descricao": "Adoçante Zero Cal 100ml",
+        "preco": 3.49,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec00e912735f00228bd5c3.jpeg"
+      },
+      {
+        "_id": "5eec00a612735f00228bd5c1",
+        "descricao": "Azeite Gallo Extra Virgem 500ml",
+        "preco": 17.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec00a612735f00228bd5c1.jpeg"
+      },
+      {
+        "_id": "5eec007612735f00228bd5c0",
+        "descricao": "Azeitona Verde Com Caroço 500g La Violetera",
+        "preco": 9.49,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec007612735f00228bd5c0.jpeg"
+      },
+      {
+        "_id": "5eec003b12735f00228bd5bf",
+        "descricao": "Vinagre de Alcool Gosto e Sabor Marinar 500ml",
+        "preco": 1.39,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eec003b12735f00228bd5bf.jpeg"
+      },
+      {
+        "_id": "5eebffdc12735f00228bd5be",
+        "descricao": "Maionese Arisco Trad. Sachet 196g",
+        "preco": 1.49,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48972183bee0017a02506.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebff8b12735f00228bd5bc",
+        "descricao": "Catchup Oderich 200g",
+        "preco": 2.39,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec487e0183bee0017a02500.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebff0312735f00228bd5bb",
+        "descricao": "Ketchup DuSul 3,0kg",
+        "preco": 8.69,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48831183bee0017a02503.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfec412735f00228bd5b9",
+        "descricao": "Maionese Dusul 3,0kg",
+        "preco": 8.89,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48881183bee0017a02505.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5ec487cc183bee0017a024ff",
+        "descricao": "Extrato de Tomate Tradelli 140g",
+        "preco": 0.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec487cc183bee0017a024ff.png"
+      },
+      {
+        "_id": "5eebfe5f12735f00228bd5b8",
+        "descricao": "Tempero em Pó Marinar",
+        "preco": 1.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48851183bee0017a02504.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfe2812735f00228bd5b6",
+        "descricao": "Colorífico Nordestino 500g",
+        "preco": 2.39,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec4881f183bee0017a02502.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfdff12735f00228bd5b5",
+        "descricao": "Extrato de Alho São Marcos 500ml",
+        "preco": 2.19,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec487f4183bee0017a02501.jpeg"
+      },
+      {
+        "_id": "5eebfd6b12735f00228bd5b1",
+        "descricao": "Tempero Popular São Marcos 500ml",
+        "preco": 1.35,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec486b1183bee0017a024fb.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec198912735f00228bd605",
+        "descricao": "Caldo Knorr 40g (Galinha, Carne ou Vegetais)",
+        "preco": 0.8,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48655183bee0017a024f9.jpeg"
+      },
+      {
+        "_id": "5eebfcc912735f00228bd5ad",
+        "descricao": "Listerine Cool Mint L500 P350ml",
+        "preco": 14.29,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec485de183bee0017a024f6.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfc7312735f00228bd5ab",
+        "descricao": "Cotonetes 75 Und. Johnson e Johnson",
+        "preco": 2.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48565183bee0017a024f5.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfc1712735f00228bd5a9",
+        "descricao": "Shampoo ou Condicionador Frizon 1L",
+        "preco": 14.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48426183bee0017a024f2.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfbbc12735f00228bd5a7",
+        "descricao": "Creme Skala 1kg",
+        "preco": 6.39,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec483f4183bee0017a024f0.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfb7912735f00228bd5a6",
+        "descricao": "Fraldas Baby Willy Hiper",
+        "preco": 29.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec483c4183bee0017a024ef.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfa8e12735f00228bd5a3",
+        "descricao": "Fraldas Baby Roger Jumbinho",
+        "preco": 9.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec4831f183bee0017a024ec.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebf9cf12735f00228bd5a1",
+        "descricao": "Limpador Perfumado São Marcos 2L",
+        "preco": 3.19,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48225183bee0017a024e7.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebfa1912735f00228bd5a2",
+        "descricao": "Polidor Vó Ita 500ml",
+        "preco": 0.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec482d6183bee0017a024ea.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eec19f712735f00228bd606",
+        "descricao": "Sabão em Barras Vó Ita",
+        "preco": 4.69,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47961183bee0017a024c3.png"
+      },
+      {
+        "_id": "5eebf8de12735f00228bd59c",
+        "descricao": "Lã de Aço Bombril 60g",
+        "preco": 0.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec481a9183bee0017a024e4.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5ec47a6a183bee0017a024c6",
+        "descricao": "Amaciante Amacitel 2L",
+        "preco": 6.35,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47a6a183bee0017a024c6.png"
+      },
+      {
+        "_id": "5eebf82b12735f00228bd596",
+        "descricao": "Detergente Líquido Brilhante 900ml",
+        "preco": 7.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec480f0183bee0017a024e0.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebf7bc12735f00228bd594",
+        "descricao": "Lava Roupas Becker 3L",
+        "preco": 15.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec48051183bee0017a024de.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebf75412735f00228bd592",
+        "descricao": "Papel Hig. Mimmo FS 4R 30m Neutro",
+        "preco": 2.99,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf3a112735f00228bd583.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebf6f512735f00228bd591",
+        "descricao": "Papel Hig. Mimmo FD L12 P11R 30m Neutro",
+        "preco": 13.79,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf42b12735f00228bd585.jpeg",
+        "destaque": false
+      },
+      {
+        "_id": "5eebf69612735f00228bd590",
+        "descricao": "Água Sanitária Marilux 5L",
+        "preco": 8.49,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf42f12735f00228bd586.jpeg"
+      },
+      {
+        "_id": "5ec478d3183bee0017a024c1",
+        "descricao": "Vassoura Presença",
+        "preco": 5.95,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec478d3183bee0017a024c1.png"
+      },
+      {
+        "_id": "5ec47805183bee0017a024be",
+        "descricao": "Rodo Bom D´água 40cm",
+        "preco": 3.79,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47805183bee0017a024be.png"
+      },
+      {
+        "_id": "5ec47732183bee0017a024ba",
+        "descricao": "Prendedor Pitibu",
+        "preco": 1.15,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47732183bee0017a024ba.png"
+      },
+      {
+        "_id": "5eebf48c12735f00228bd588",
+        "descricao": "Lustra Móveis Renovar Sanol 200ml",
+        "preco": 4.39,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf48c12735f00228bd588.jpeg"
+      },
+      {
+        "_id": "5eebf43312735f00228bd587",
+        "descricao": "Detergente Vó Ita 2L",
+        "preco": 3.85,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf43312735f00228bd587.jpeg"
+      },
+      {
+        "_id": "5eebf3f212735f00228bd584",
+        "descricao": "Detergente Marilux 500ml",
+        "preco": 0.99,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf3f212735f00228bd584.jpeg"
+      },
+      {
+        "_id": "5eebf39812735f00228bd582",
+        "descricao": "Limpador Multiuso Azulim 500ml",
+        "preco": 2.59,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5eebf39812735f00228bd582.jpeg"
+      },
+      {
+        "_id": "5ec47d27183bee0017a024cd",
+        "descricao": "Detergente em Pó Marilux 500g",
+        "preco": 1.39,
+        "destaque": false,
+        "imagem": "5e9668b9b2399b00137d9fe0-5ec47d27183bee0017a024cd.png"
+      }
+    ],
+    "filiados": [
+      {
+        "_id": "5e9889e8ab59570013df6136",
+        "nome": "Supermercado União",
+        "endereco": "Rua Zacarias Bandeira Nº66, Centro, Poço De José De Moura - PB",
+        "telefone": "83998599965",
+        "logo": "5e9668b9b2399b00137d9fe0-5e9889e8ab59570013df6136.jpeg"
+      },
+      {
+        "_id": "5e988a21ab59570013df6137",
+        "nome": "Supermercado Abrantes",
+        "endereco": "Rua Santa Luzia, Distrito De Várzea Da Ema, Santa Helena - PB",
+        "telefone": "",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988a21ab59570013df6137.jpeg"
+      },
+      {
+        "_id": "5e988a3dab59570013df6138",
+        "nome": "Supermercado Baijão",
+        "endereco": "Rua Gonçalo José Vituriano, Centro, Santa Helena - PB",
+        "telefone": "83996127066",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988a3dab59570013df6138.jpeg"
+      },
+      {
+        "_id": "5e988a60ab59570013df6139",
+        "nome": "Nossa Senhora De Fátima",
+        "endereco": "Rua Gov. João Agripino Nº 332, Centro, Cachoeira Dos Índios - PB",
+        "telefone": "83998298353",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988a60ab59570013df6139.jpeg"
+      },
+      {
+        "_id": "5e988a78ab59570013df613a",
+        "nome": "Mercadinho São Francisco",
+        "endereco": "Rua Santa Luzia, Zona Rural, São Pedro - PB",
+        "telefone": "83981149087",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988a78ab59570013df613a.jpeg"
+      },
+      {
+        "_id": "5e988a94ab59570013df613b",
+        "nome": "Supermercado Ednaldo",
+        "endereco": "Av. Jose Vital De Oliveira (Terreo) Nº85, Centro, Santa Cruz - PB",
+        "telefone": "83981027501",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988a94ab59570013df613b.jpeg"
+      },
+      {
+        "_id": "5e988ab9ab59570013df613c",
+        "nome": "Supermercado São José",
+        "endereco": "Rua Padre Izidro, Centro, São José Da Lagoa Tapada - PB",
+        "telefone": "83981683527",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988ab9ab59570013df613c.jpeg"
+      },
+      {
+        "_id": "5e988adcab59570013df613d",
+        "nome": "Supermecado Leão",
+        "endereco": "Sítio Dois Riachos, Zona Rural, São Francisco - PB",
+        "telefone": "83982078991",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988adcab59570013df613d.jpeg"
+      },
+      {
+        "_id": "5e988afaab59570013df613e",
+        "nome": "Supermercado Compre Mais (Matriz)",
+        "endereco": "Rua Antonio Fernandes De Almeida Nº339, Centro,  Pombal - PB",
+        "telefone": "83999660084",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988afaab59570013df613e.jpeg"
+      },
+      {
+        "_id": "5e988b13ab59570013df613f",
+        "nome": "Supermercado Compre Mais (Filial)",
+        "endereco": "Rua Cel Francisco De Assis - 62, Centro, Pombal - PB",
+        "telefone": "83999660084",
+        "logo": "5e9668b9b2399b00137d9fe0-5e988b13ab59570013df613f.jpeg"
+      }
+    ],
+    "parceiros": [
+      {
+        "_id": "5eded96c056cda0017aac5fd",
+        "nome": "",
+        "logo": "5e9668b9b2399b00137d9fe0-5eded96c056cda0017aac5fd.jpg"
+      },
+      {
+        "_id": "5eded976056cda0017aac5fe",
+        "nome": "",
+        "logo": "5e9668b9b2399b00137d9fe0-5eded976056cda0017aac5fe.jpg"
+      },
+      {
+        "_id": "5eded97e056cda0017aac5ff",
+        "nome": "",
+        "logo": "5e9668b9b2399b00137d9fe0-5eded97e056cda0017aac5ff.jpg"
+      },
+      {
+        "_id": "5eded986056cda0017aac600",
+        "nome": "",
+        "logo": "5e9668b9b2399b00137d9fe0-5eded986056cda0017aac600.jpg"
+      }
+    ]
+    }
+    
+}
