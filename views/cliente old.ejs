@@ -1,0 +1,78 @@
+<%
+function mudarCasaDecimal(value, places, symbol, thousand, decimal) {
+    places = !isNaN(places = Math.abs(places)) ? places : 2;
+    symbol = symbol !== undefined ? symbol : "$";
+    thousand = thousand || ",";
+    decimal = decimal || "."; 
+        negative = value < 0 ? "-" : "",
+        i = parseInt(value = Math.abs(+value || 0).toFixed(places), 10) + "",
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return symbol + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(value - i).toFixed(places).slice(2) : "");
+}
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head')%>
+    <title>E-ncarte <%=cliente.nome%></title>
+</head>
+<body>
+    <%-include('partials/menu')%>       
+        <div class="container-fluid p-2 my-2">
+            <div class="row">
+                <!--INÍCIO APOIO-->
+                <div id="apoio" class="col-2 text-center mx-auto">
+                       <h3 id="titulo-apoio">Apoio</h3>
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2F0322369f-02f3-47a2-9788-27d4e020c182.jpg?alt=media&token=b86d16f0-fb9a-4cc6-8117-5c23d8ca02c4">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2F222f3ffe-255d-4ade-a7d2-72180048bcce.jpg?alt=media&token=bf918270-8e3b-4aad-bdee-fb7454d0d7d0">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2F501f3209-3539-47fa-abf4-25bf8f46d876.jpg?alt=media&token=3734939c-3d00-4be1-b076-0314c911778d">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2F7c15c8dd-0a1f-4c11-a1a2-8a66b0c6f658.jpg?alt=media&token=7e23788b-cc27-4f5d-8ad2-3d9241c223f2">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2F8e5209b5-cf1a-4e4b-b096-ffb6a479e9c4.jpg?alt=media&token=9a44c7a8-fb09-4af7-9f37-8636270ec031">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2Fd0445a32-f80d-4131-bc02-d1f8903ec52e.jpg?alt=media&token=95632009-4b5f-48cb-b024-8ccc134b6162">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2Fphoto5084810807233062952.jpg?alt=media&token=c06d9106-4aee-402e-b7dc-a05fa8ba5c1a">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2Fphoto5084810807233062953.jpg?alt=media&token=da3cff67-af03-4574-b444-4c92d254b553">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2Fphoto5084810807233062954.jpg?alt=media&token=9d0dbdd8-2c41-4585-ab88-5f48a46cfc2a">
+                       <img class="img-apoio" src="https://firebasestorage.googleapis.com/v0/b/e-ncarte.appspot.com/o/Apoio%2Fphoto5084810807233062960.jpg?alt=media&token=60e193ab-d3f0-4f10-8a40-d890b630c57f">
+                </div><!--FIM APOIO-->                
+                <!--INÍCIO DA ÁREA CENTRAL-->
+                <div id="area-central" class="col-9 border mx-auto">
+                    <div class="col-8 mx-auto text-center">                       
+                        <img class="cliente-logo my-5" src="/img/logos/<%=cliente.logo%>" alt="<%=cliente.nome%>">
+                    </div>                    
+                    <!--INÍCIO PRODUTOS-->
+                        <!-- PRODUTOS EM DESTAQUE-->
+                        <div class="row mr-1">
+                            <%for (let produto of cliente.produtos){%>
+                                <%if (produto.emDestaque){%>
+                                    <div class="col-4 col-sm-3">  
+                                        <div class="text-center produto-destaque">
+                                            <img src="<%=produto.imagemPath%>" class="produto-destaque-img">
+                                            <p class="produto-destaque-desc"><%=produto.descricao%></p>
+                                            <h2 class ="produto-destaque-preco"><%=produto.formatMoney(2, "", ".", ",");%></h2>
+                                        </div>
+                                    </div>
+                                <%}%>                              
+                            <%}%>
+                        </div>
+                        <!-- PRODUTOS -->
+                        <div class="row mr-1 mt-2">
+                            <%for (let produto of cliente.produtos){%>
+                                <%if (!produto.emDestaque){%>
+                                    <div class="col-2">  
+                                        <div class="text-center produto">
+                                            <img src="/img/produtos/<%=produto.imagem%>" class="produto-img">
+                                            <p class="produto-desc"><%=produto.descricao%></p>
+                                            <h2 class ="produto-preco"><%= mudarCasaDecimal(produto.preco, 2, "", ".", ",");%></h2>
+                                        </div>
+                                    </div>
+                                <%}%>                              
+                            <%}%>
+                        </div>   
+                    </div><!--FIM PRODUTOS--> 
+                </div><!--FIM DA ÁREA CENTRAL-->
+            </div>       
+        </div>
+    <%-include('partials/footer')%> 
+    <%-include('partials/bootstrapjs')%>
+</body>
+</html>

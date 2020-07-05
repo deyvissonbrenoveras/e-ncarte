@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Cliente - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <a href="/admin/clientes"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a> 
+                <h3 id="cadastrarClienteh1">Cadastrar cliente</h3>
+                <h5>Nome</h5></h5>
+                <input id="clienteNome" class="form-control" type="text" placeholder="Insira o nome do cliente" maxlength="150">
+                <h5>Url</h5>
+                <input id="clienteNomeUrl" class="form-control" type="text" placeholder="Insira a URL" maxlength="100">  
+                <h5>Endereco</h5>
+                <textarea id="clienteEndereco" class="form-control" placeholder="Insira o endereço"></textarea>
+                <h5>Cidade</h5>
+                <input id="clienteCidade" class="form-control" type="text" placeholder="Insira a cidade ex.: Cajazeiras - PB">  
+                <h5>Contato</h5>
+                <input id="clienteContato" class="form-control" type="text" placeholder="Insira os contatos">  
+                <h5>Whatsapp</h5>
+                <input id="clienteWhatsapp" class="form-control" type="text" placeholder="Ex: 8399999999" maxlength="11">  
+                <h5>Logo</h5>
+                <input id="clienteLogo" class="form-control-file" type="file" onchange="loadClienteLogo(this)">
+                <h5>Imagem da campanha</h5>
+                <input id="imagemCampanha" class="form-control-file" type="file" onchange="loadImagemCampanha(this)">
+                <button id="salvarCliente" onclick="inserirCliente()" class="btn btn-success w-50 mt-3">Salvar</button>
+             </div>
+        </div>
+    </div>
+    <script>
+        $("#clienteNomeUrl").keyup(function(){
+           let text = $(this).val();
+           text = text.replace(/ /g, "").toLowerCase();
+           $(this).val(text);
+        })     
+    </script>
+</body>
+</html>
+

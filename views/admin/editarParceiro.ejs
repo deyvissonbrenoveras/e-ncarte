@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Parceiro - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 col-md-6">
+                <a href="/admin/editarcliente?idCliente=<%= cliente._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>
+                <form action="/parceiro/editar" method="POST" enctype="multipart/form-data">
+                    <h1>Editar Parceiro</h1>
+                    <input class="d-none" type="text" id="idCliente" value="<%= cliente._id %>" name="idCliente">
+                    <input class="d-none" type="text" id="idParceiro" value="<%= parceiro._id %>" name="_id">
+                    <h5>Nome</h5>
+                    <input id="parceiroNome" class="form-control" type="text" placeholder="Nome" name="nome" value="<%= parceiro.nome %>">
+                    <h5>Logo</h5>
+                    <img class="img-logo-edicao" src="/img/parceiros/<%= parceiro.logo %>" alt="">
+                    <input id="parceiroLogo" class="form-control-file" type="file"  name="logo">
+                    <button class="btn btn-danger mt-3" name="action" value="excluir">Excluir</button>
+                    <button class="btn btn-success mt-3" name="action" value="editar">Salvar</button>
+                </form>    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

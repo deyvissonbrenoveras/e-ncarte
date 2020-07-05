@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-6">
+                <a href="/admin/editarcliente?idCliente=<%= cliente._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>  
+                <h1>Editar produto</h1>
+                <input class="d-none" type="text" id="idCliente" value="<%= cliente._id %>">
+                <input class="d-none" type="text" id="idProduto" value="<%= produto._id %>">
+                <h5>Descrição</h5>
+                <input id="produtoDescricao" class="form-control" type="text" placeholder="Descrição" value="<%= produto.descricao%>">
+                <h5>Preço</h5>
+                <input id="produtoPreco" class="form-control w-50" type="number" value="<%= produto.preco%>">
+                <p>Obs.: Se o preço for R$ 0,00 não será exibido.</p>
+                <div class="form-check my-2">
+                    <input type="checkbox" class="form-check-input" id="produtoDestaque" <%= produto.destaque ? "checked" : "" %>>
+                    <label class="form-check-label" for="produtoDestaque">Destaque</label>
+                </div>
+                <h5>Imagem</h5>
+                <img class="img-logo-edicao" src="/img/produtos/<%= produto.imagem %>" alt="">
+                <input id="produtoImagem" class="form-control-file" type="file" onchange="loadImagemProduto(this)">
+                <button id="excluirProduto "onclick="excluirProduto()" class="btn btn-danger w-25 mt-5 ml-auto mr-2">Excluir</button>
+                <button id="salvarProduto" onclick="editarProduto()" class="btn btn-success w-25 ml-auto mt-5">Salvar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

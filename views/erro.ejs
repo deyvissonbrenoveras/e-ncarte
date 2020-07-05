@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%-include('partials/head')%>
+    <title>Erro - e-ncarte</title>
+</head>   
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class=" col-12 col-lg-4 text-center">
+                <img class="logo-site my-5" src="/img/logo.png" alt="e-ncarte">
+                <div class="display-4 mb-3">Ops...</div>
+                <h4><%= erro %></h4>
+            </div>
+        </div>
+    </div>
+    <%-include('partials/bootstrapjs')%>
+</body>
+</html>

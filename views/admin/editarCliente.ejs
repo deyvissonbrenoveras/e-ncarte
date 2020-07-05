@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10">   
+                <a href="/admin/clientes"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>     
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="/admin?menu=editarcliente&_id=<%= cliente._id %>" class="nav-link active">Editar cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/admin/cuponspromocionais?idCliente=<%= cliente._id %>" class="nav-link">Cupons promocionais</a>
+                    </li>
+                </ul>
+                <div class="border">
+                    <div class="col-12">
+                        <h1 id="cadastrarClienteh1">Editar cliente</h1>
+                    </div>
+                    <div class="col-md-12">
+                        <input class="d-none" type="text" id="idCliente" value="<%= cliente._id %>">
+                        <div class="form-group">
+                            <h5>Nome</h5>
+                            <input id="clienteNome" class="form-control" type="text" placeholder="Insira o nome do cliente" value="<%= cliente.nome %>">
+                        </div>
+                    </div>
+                    <div class="col-md-12"> 
+                        <div class="form-group">
+                            <h5>Url</h5>
+                            <input id="clienteNomeUrl" class="form-control" type="text" placeholder="Insira a URL" value="<%= cliente.nomeUrl %>">  
+                        </div>
+                    </div>
+                    <div class="col-4"> 
+                        <div class="form-group">
+                            <h5>Endereço</h5>
+                            <textarea id="clienteEndereco" class="form-control" placeholder="Insira o endereço"><%= cliente.endereco %></textarea>
+                        </div>
+                    </div>
+                    <div class="col-4"> 
+                        <div class="form-group">
+                            <h5>Cidade</h5>
+                            <input id="clienteCidade" class="form-control" type="text" placeholder="Insira a cidade ex.: Cajazeiras - PB" value="<%= cliente.cidade %>">  
+                        </div>
+                    </div>
+                    <div class="col-4"> 
+                        <div class="form-group">
+                            <h5>Contato</h5>
+                            <input id="clienteContato" class="form-control" type="text" placeholder="Insira os contatos" value="<%= cliente.contato %>">  
+                        </div>
+                    </div>
+                    <div class="col-4"> 
+                        <div class="form-group">
+                            <h5>Whatsapp</h5>
+                            <input id="clienteWhatsapp" class="form-control" type="text" placeholder="Ex: 8399999999" value="<%= cliente.whatsapp %>">  
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <div class="form-group">
+                            <h5>Logo</h5>
+                            <img class="img-logo-edicao mb-3" src="/img/logos/<%=cliente.logo%>">
+                            <input id="clienteLogo" class="form-control-file" type="file" onchange="loadClienteLogo(this)">
+                            <h5>Imagem campanha</h5>
+                            <img class="img-logo-edicao mb-3" src="/img/logos/<%=cliente.imagemCampanha%>">
+                            <input id="clienteLogo" class="form-control-file" type="file" onchange="loadImagemCampanha(this)">
+                            <button id="excluirCliente "onclick="excluirCliente()" class="btn btn-danger w-25 mt-5 ml-auto mr-2">Excluir</button>
+                            <button id="salvarCliente" onclick="editarCliente()" class="btn btn-success w-25 ml-auto mt-5">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="border my-3">
+                    <h1>Produtos</h1>
+                    <div class="text-right">
+                        <button id="buttonAlterarOrdemProdutos" class="btn btn-info ml-auto my-3" onclick="alterarOrdemProdutos(true)">Alterar ordem</button>
+                        <button id="buttonCancelarAlterarOrdemProdutos" class="btn btn-danger d-none ml-auto my-3" onclick="cancelarAlterarOrdemProdutos()">Cancelar</button>
+                        <button id="buttonSalvarOrdemProdutos" class="btn btn-success d-none ml-auto my-3" onclick="salvarOrdemProdutos()">Salvar ordem dos produtos</button> 
+                        <a id="buttonNovoProduto" class="btn btn-info ml-auto my-3" href="/admin/novoproduto?idCliente=<%=cliente._id%>">Novo produto</a>   
+                    </div>           
+                    <table id="produtos" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Descrição</th>
+                                <th>Preço</th>
+                                <th>Imagem</th>
+                                <th>Destaque</th>
+                            </tr>
+                        </thead>
+                        <tbody id="produtosBody">                
+                            <% cliente.produtos.forEach((produto, index)=>{ %>
+                                <tr class="list-row" id="<%= produto._id %>">
+                                    <td><%= index + 1 %></td>
+                                    <td><%= produto.descricao %></td>
+                                    <td>R$ <%= produto.preco %></td>
+                                    <td><img class="img-logo-admin" src="/img/produtos/<%= produto.imagem %>" alt=""></td>
+                                    <td><input type="checkbox" class="form-check-input" id="produtoDestaque" <%= produto.destaque ? "checked" : "" %>></td>
+                                </tr>                   
+                            <% }) %>                
+                        </tbody>
+                    </table>
+                </div>
+                <div class="border my-3">
+                    <h1>Filiados</h1>
+                    <div class="text-right">
+                        <button id="buttonAlterarOrdemFiliados" class="btn btn-info ml-auto my-3" onclick="alterarOrdemFiliados(true)">Alterar ordem</button>
+                        <button id="buttonCancelarAlterarOrdemFiliados" class="btn btn-danger d-none ml-auto my-3" onclick="cancelarAlterarOrdemFiliados()">Cancelar</button>
+                        <button id="buttonSalvarOrdemFiliados" class="btn btn-success d-none ml-auto my-3" onclick="salvarOrdemFiliados()">Salvar ordem dos filiados</button>
+                        <a id="buttonNovoFiliado" class="btn btn-info ml-auto my-3" href="/admin/novofiliado?idCliente=<%=cliente._id%>">Novo filiado</a>    
+                    </div>
+                    
+                    <table id="filiados" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Endereço</th>
+                                <th>Telefone</th>
+                                <th>Logo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="filiadosBody">
+                            <% cliente.filiados.forEach((filiado, index)=>{ %>
+                                <tr class="list-row" id="<%= filiado._id %>">
+                                    <td><%= index + 1 %></td>
+                                    <td><%= filiado.nome %></td>
+                                    <td><%= filiado.endereco %></td>
+                                    <td><%= filiado.telefone %></td>
+                                    <td><img class="img-logo-admin" src="/img/filiados/<%= filiado.logo %>" alt=""></td>
+                                </tr>
+                            <% }) %>  
+                        </tbody>
+                    </table>
+                </div>
+                <div class="border my-3">
+                    <h1>Parceiros</h1>
+                    <div class="text-right">
+                        <button id="buttonAlterarOrdemParceiros" class="btn btn-info ml-auto my-3" onclick="alterarOrdemparceiros(true)">Alterar ordem</button>
+                        <button id="buttonCancelarAlterarOrdemFiliados" class="btn btn-danger d-none ml-auto my-3" onclick="cancelarAlterarOrdemParceiros()">Cancelar</button>
+                        <button id="buttonSalvarOrdemParceiros" class="btn btn-success d-none ml-auto my-3" onclick="salvarOrdemParceiross()">Salvar ordem dos parceiros</button>
+                        <a id="buttonNovoParceiro" class="btn btn-info ml-auto my-3" href="/admin/novoparceiro?idCliente=<%=cliente._id%>">Novo parceiro</a>    
+                    </div>
+                    
+                    <table id="parceiros" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>Logo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="parceirosBody">
+                            <% cliente.parceiros.forEach((parceiro, index)=>{ %>
+                                 <tr class="list-row" id="<%= parceiro._id %>">
+                                    <td><%= index + 1 %></td>
+                                    <td><%= parceiro.nome %></td>
+                                    <td><img class="img-logo-admin" src="/img/parceiros/<%= parceiro.logo %>" alt="<%= parceiro.nome %>"></td>   
+                                </tr>                   
+                            <% }) %>                
+                        </tbody>
+                    </table>
+                </div>
+             </div>
+        </div>
+    </div>
+    <script> 
+        function addProdutosClickEvent (){
+            $("#produtos").children("tbody").children("tr").click(function (event){
+                let idCliente = $("#idCliente").val();
+                let idProduto = $(this).attr("id");
+                window.location.href = `/admin/editarproduto?idCliente=${idCliente}&idProduto=${idProduto}`;
+            })
+        }
+        function addFiliadosClickEvent (){
+            $("#filiados").children("tbody").children("tr").click(function (event){
+                let idCliente = $("#idCliente").val();
+                let idFiliado = $(this).attr("id");
+                window.location.href = `/admin/editarfiliado?idCliente=${idCliente}&idFiliado=${idFiliado}`;
+            })
+        }
+        function addParceirosClickEvent (){
+            $("#parceiros").children("tbody").children("tr").click(function (event){
+                let idCliente = $("#idCliente").val();
+                let idParceiro = $(this).attr("id");
+                window.location.href = `/admin/editarparceiro?idCliente=${idCliente}&idParceiro=${idParceiro}`;
+            })
+        }
+        addProdutosClickEvent();
+        addFiliadosClickEvent();
+        addParceirosClickEvent();
+        
+    </script>
+</body>
+</html>
+
+

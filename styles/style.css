@@ -1,0 +1,650 @@
+@font-face{
+    font-family: "Oswald";
+    src: url("/styles/fonts/Oswald-Regular.ttf")
+}
+:root{
+    --cor-rosa: rgb(237, 47, 87);
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: #ebebeb; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+#index-body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#nav-menu{
+    border-bottom: 3px solid var(--cor-rosa);
+}
+#nav-menu a{
+    color: black;
+}
+.logo-site{
+    width: 100px;
+}
+/* .carousel-indicators .active{
+    background-color: var(--cor-rosa);
+}
+.carousel-icon{
+    color: var(--cor-rosa);
+    font-size: 2em;
+} */
+.secao-1{
+    width: 100%;
+    min-height: 600px;
+    background-color: #fafafa; 
+}
+.secao-2{
+    width: 100%;
+    min-height: 600px;
+    background-color: white; 
+}
+ .carousel-image{
+    min-width: 100%;
+    min-height: 60%; 
+} 
+.whatsapp-botao {
+    width: 60px;
+}
+.h1-carousel {
+    position: absolute;
+    bottom: 10%;
+    color:white;
+    left: 0;
+    font-size: 1.5em;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.600);
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white; */
+}
+.index-h{
+    color: var(--cor-rosa);
+    font-weight: bold;
+    font-weight: 700;
+}
+.index-text{
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+.depoimento-img{
+    width: 150px;
+    border-radius: 75px;
+}
+.depoimento-nome{
+    text-align: center;
+    color: rgb(75, 75, 77);
+    font-weight: 800;
+    font-family: Helvetica;
+}
+.depoimento-comentario{
+    font-size: 0.9em;
+    font-family: Helvetica, sans-serif;
+}
+.faq-button{
+    color: black;
+    display: block;
+    text-decoration: none;
+    padding-top: 28px;
+    padding-left: 30px;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    border-radius: 5px;
+    transition: 300ms;
+    background-image: url("/img/util/faq-arrow-down.webp");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 40px; 
+    font-weight: 750;   
+
+}
+.faq-button-collapsed{
+    background-image: url("/img/util/faq-arrow-up.webp");
+}
+.faq-button:hover{
+    color: black;
+    text-decoration: none;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.205);
+}
+@keyframes botao-contato-animacao{
+    from {
+        width: 300px;
+        height: 60px;
+        font-size: 1.5em;
+    }
+    to {
+        width: 350px;
+        height: 70px;
+        font-size: 1.8em;
+    }
+}
+
+.botao-contato{
+    text-align: center;
+    margin: 30px;
+    height: 300px;
+    min-width: 300px;
+    height: 60px;
+    word-break: keep-all;
+    background-image: linear-gradient(to left, yellow, rgb(223, 86, 86)); 
+    color: white;
+    padding: 10px 35px 10px 35px;
+    border-radius: 4px;
+    font-family: 'Oswald', 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}
+
+.botao-contato:hover{
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 20px 30px rgb(223, 86, 86);
+    animation-name: botao-contato-animacao;
+    animation-duration: 500ms;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+
+}
+.homem-logo{
+    width: 100%;
+}
+.mulher-logo{
+    width: 100%;
+
+}
+#area-central-index{
+    background-color: white;
+    
+}
+@keyframes aparecer-area{
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+#area-index-1{
+    padding: 30px;
+    min-height: 550px;
+    animation: aparecer-area;
+    animation-duration: 2s;
+    animation-delay: 500ms;
+    animation-fill-mode: backwards;
+}
+#area-index-2{
+    background-color: #ebebeb;
+    min-height: 550px;
+}
+#img-index-1{
+    width: 100%;
+}
+@keyframes aparecerDireita{
+    from{left: 1000px;}
+    to{left: 0;}
+}
+#area-central{
+    min-height: 900px;
+    background-color: white;
+    border-radius: 10px;
+    animation: aparecerDireita 500ms ease-out;
+    border-right: 30px;
+}
+@keyframes aparecerCima{
+    from{top: 1000px;}
+    to{top:0px;}
+}
+.produto{
+    width: 40px;
+    height: 45px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
+    animation-name: aparecerCima;
+    animation-duration: 300ms;
+    animation-delay: 550ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+    position: relative;  
+}
+.produto-destaque{
+    width: 90px;
+    height: 80%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; 
+    animation-name: aparecerCima;
+    animation-duration: 300ms;
+    animation-delay: 550ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+    position: relative; 
+}
+.produto-img{
+    position: relative;
+    width: 25px;
+    height: 25px;
+}
+.produto-destaque-img{
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+.produto:hover, .produto-destaque:hover{
+    top: -10px;
+}
+.produto-preco{    
+    color:red;
+    text-shadow: 1px 0px white,
+                -1px 0px white,
+                0px 1px white,
+                0px -1px white;
+    font-style: italic;
+    font-size: 0.5em;
+    font-weight: bold;
+    position: relative;     
+    background-color: yellow;
+    border-radius: 3px; 
+    transform: skew(-10deg);
+    width: 20px;
+    z-index: 1;
+    left: 18px;
+    bottom: 12px;
+}
+.produto-destaque-preco{ 
+    width: 35px;
+    font-size: 1em;    
+    left: 50px;
+    bottom: 26px;
+    color:red;
+    text-shadow: 1px 0px white,
+                -1px 0px white,
+                0px 1px white,
+                0px -1px white;
+    font-style: italic;
+    font-weight: bold;
+    position: relative;     
+    background-color: yellow;
+    background-size: contain;
+    border-radius: 3px; 
+    transform: skew(-10deg);
+    z-index: 1;
+}
+
+.produto-desc{
+    width: 35px;
+    font-weight: bolder;
+    font-size: 3px;
+    text-shadow: 1px 0px white,
+                -1px 0px white,
+                0px 1px white,
+                0px -1px white;
+   position: relative;
+   z-index: 1;
+   margin: auto;
+   bottom: -5px;
+    
+}
+.produto-destaque-desc{
+    width: 80px;
+    font-size: 0.4em;
+    bottom: -15px;
+    font-weight: bolder;
+    text-shadow: 1px 0px white,
+                -1px 0px white,
+                0px 1px white,
+                0px -1px white;
+   position: relative;
+   z-index: 1;
+   margin: auto;
+}
+.produto-img-modal {
+    width: 80%;
+}
+.img-filiado{
+    max-width: 80px;
+}
+.img-parceiros{
+    width: 80px;
+    height: 80px;
+}
+.nome-filiado{
+    font-size: 0.4em;
+} 
+.endereco-filiado{
+    font-size: 0.5em;
+}
+.img-social-filiado{
+    width: 0.9em;
+}
+.social-filiado{
+    color: inherit;
+}
+.cliente-logo{
+    border-radius: 10px;
+    display: block;
+    max-height: 50%;
+    width: 200px
+}
+.cliente-campanha{
+    width: 100%;
+    border-radius: 5px;
+}
+#cliente-nome{
+    font-size: 1.5em;
+}
+.share-btn{
+    width: 40px;
+    margin: 5px;
+}
+@keyframes aparecerEsquerda{
+    from{background-color:gray; right: 1000px;}
+    to{background-color:white;right: 0;}
+    
+}
+#apoio{
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    animation-name: aparecerEsquerda;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+}
+#apoio{
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    animation-name: aparecerEsquerda;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+}
+#titulo-apoio{
+    margin: 5px;
+    font-size: 0.9em;
+    color: var(--cor-rosa);
+    font-weight: bold;
+}
+.img-logo-admin{
+    width: 100px;
+    max-height: 50px;
+}
+.img-logo-edicao{
+    width: 250px;
+}
+.img-apoio{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.list-row{
+    text-align: center;
+}
+.list-row:hover{
+    cursor: pointer;
+    background-color: white;
+}
+.baloes-sticky {
+    display: flex;
+    position: sticky;
+    margin: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    bottom: 10px;
+    z-index: 100;
+}
+.promocao {
+    /* position: sticky; */
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 0.6em;
+    margin-right: 10px;
+} 
+.promocao-logo{
+    width: 40px;
+} 
+#botaoFlutuanteWhatsapp {
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    margin-right: 5px;
+    background-color: rgba(224, 224, 224, 0.397);
+    border-radius: 4px;
+}
+#botaoFlutuanteWhatsapp:hover {
+   cursor: pointer;
+   background-color: rgb(224, 224, 224);
+}
+#botaoFlutuanteWhatsapp div:first-child { 
+    width: 60px;
+    height: 60px;
+    background: url("/img/util/whatsapp.webp") no-repeat; 
+    background-size: 100%;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+}
+#botaoFlutuanteWhatsapp div {  
+    /* border: 1px solid yellow;     */
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+footer{
+    background-image: url("/img/util/fundo-site.webp");
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    border-top: 3px solid var(--cor-rosa);
+    height: 400px;
+}
+footer a{
+    color: black;
+} 
+.logo-footer{
+    border-radius: 10px;
+    width: 60%;
+}
+.footer-social {
+    padding: 5px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.836);
+    border-radius: 5px;
+}
+.footer-social img{
+    width: 30px;
+    border-radius: 3px;
+    margin: 3px;
+}
+.footer-social a{
+    color: white;
+}
+.cursor-move{
+    cursor: move !important;
+}
+#tableParticipantesCampanha{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    margin: 0;
+}
+.rowParticipantesCampanha td, tr{   
+    word-wrap: wrap; 
+    min-width: 50%;
+    padding: 15px;
+    text-align: center;
+}
+@media (min-width: 576px) {    
+    .carousel-icon{
+        font-size: 4em;
+    }
+    .cliente-logo{
+        width: 200px;
+    }
+    .produto{
+        width: 80px;
+        height: 80px; 
+    }
+    .produto-img{
+        width: 50px;
+        height: 50px;
+    }
+    .produto-preco{
+        width: 20px;
+        font-size: 0.7em;
+        bottom: 30px;
+        left: 50px;
+    }
+    .produto-desc{
+        font-size: 5px;
+        width: 50px;
+    }
+    .produto-destaque{
+        right: 25px;
+        width: 150px;  
+        height: 125px;     
+    }
+    .produto-destaque-img{
+        width: 70px;
+        height: 70px;
+        
+    }
+    .produto-destaque-preco{
+        width: 35px;
+        font-size: 1em;
+        bottom: 40px;
+        left: 88px;
+    }
+    .produto-destaque-desc{
+        font-size: 0.5em;
+        width: 100px;
+    }
+    .img-filiado{
+        max-width: 100px;
+    }
+    
+    .nome-filiado{
+        font-size: 0.8em;
+    } 
+    .endereco-filiado{
+        font-size: 0.7em;
+    }
+    .img-social-filiado{
+        width: 1em;
+    }
+    .social-filiado{
+        color: inherit;
+    }
+}
+@media (min-width: 768px) { 
+    .cliente-logo{
+        width: 300px;
+    }
+    #cliente-nome{
+        font-size: 2em;
+    }
+    .produto{
+        width: 100px;
+        height: 100px; 
+    }
+    .produto-img{
+        width: 70px;
+        height: 70px;
+    }
+    .produto-preco{
+        width: 30px;
+        font-size: 1em;
+        bottom: 40px;
+        left: 60px;
+    }
+    .produto-desc{
+        font-size: 0.5em;
+        width: 90px;
+    }
+    .produto-destaque{
+        width: 200px;  
+        height: 150px;     
+    }
+    .produto-destaque-img{
+        width: 100px;
+        height: 100px;
+        
+    }
+    .produto-destaque-preco{
+        width: 50px;
+        font-size: 1.5em;
+        bottom: 55px;
+        left: 125px;
+    }
+    .produto-destaque-desc{
+        font-size: 0.8em;
+        width: 150px;
+    }
+    .promocao {
+        font-size: 1em;
+    } 
+    .promocao-logo{
+        width: 80px;
+    }
+ }
+@media (min-width: 992px) {     
+    .h1-carousel {
+        left: calc(50% - 25%);  
+        width: 50%;
+        font-size: 1.5em;   
+    } 
+    .logo-site{
+        width: 180px;
+    }
+    #cliente-nome{
+        font-size: 2.5em;
+    }
+    #area-index-1{
+        padding-top: 100px;
+    }
+    
+ }
+@media (min-width: 1200px) {     
+    #cliente-nome{
+        font-size: 3em;
+    }
+    .produto{
+        width: 150px;
+        height: 160px; 
+    }
+    .produto-img{
+        width: 95px;
+        height: 95px;
+    }
+    .produto-preco{
+        width: 50px;
+        font-size: 1.5em;
+        bottom: 60px;
+        left: 95px;
+    }
+    .produto-desc{
+        font-size: 0.8em;
+        width: 150px;
+        bottom: -15px;
+    }
+    .produto-destaque{
+        width: 250px;  
+        height: 180px; 
+    }
+    .produto-destaque-img{
+        width: 130px;
+        height: 130px;
+        
+    }
+    .produto-destaque-preco{
+        width: 80px;
+        font-size: 2em;
+        bottom: 63px;
+        left: 160px;
+    }
+    .produto-destaque-desc{
+        font-size: 0.8em;
+        width: 200px;
+    }
+ }

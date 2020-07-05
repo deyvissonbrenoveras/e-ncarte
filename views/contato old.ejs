@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head')%>
+    <title>Contato - E-ncarte</title>
+</head>
+<body>
+    <%-include('partials/menu')%>
+        <div id="area-central" class="container-fluid">
+            <div class="row">
+                <div class="col-6 mx-auto mt-5">
+                    <h3 class="mb-5">Envie sua mensagem para o E-ncarte</h3>                    
+                    <form action="/contato" method="POST">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Nome</span>
+                            </div>
+                            <input name="nome" class="form-control" type="text">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">E-mail</span>
+                            </div>
+                            <input name="email" class="form-control" type="text">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Assunto</span>
+                            </div>
+                            <input name="assunto" class="form-control" type="text">
+                        </div>                    
+                        <div>Mensagem</div>
+                        <textarea name="mensagem" class="d-block form-control" cols="30" rows="5"></textarea>
+                        <button class="btn btn-warning mt-2" type="submit">Enviar</button>
+                    </form>
+                    
+                </div>
+                
+            </div>
+        </div>
+    <%-include('partials/footer')%> 
+    <%-include('partials/bootstrapjs')%>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Filiado - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 col-md-6">
+                <a href="/admin/editarcliente?idCliente=<%= cliente._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>
+                <h1>Novo filiado</h1>
+                <input class="d-none" type="text" id="idCliente" value="<%= cliente._id %>">
+                <h5>Nome</h5>
+                <input id="filiadoNome" class="form-control" type="text" placeholder="Nome">
+                <h5>Endereço</h5>
+                <input id="filiadoEndereco" class="form-control" type="text" placeholder="Endereço">
+                <h5>Telefone</h5>
+                <input id="filiadoTelefone" class="form-control" type="text" placeholder="Telefone">
+                <h5>Logo</h5>
+                <input id="filiadoLogo" class="form-control-file" type="file" onchange="loadFiliadoLogo(this)">
+                <button onclick="inserirFiliado()" class="btn btn-success mt-3">Salvar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

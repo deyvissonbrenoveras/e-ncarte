@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Campanha de Cupons - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row p-5">
+            <div class="col-6">
+                <a href="/admin/cuponspromocionais?idCliente=<%= cliente._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>     
+                <h3>Cadastrar nova campanha de cupons</h3>
+                <div class="form-group">
+                    <input class="d-none" type="text" id="idCliente" value="<%= cliente._id %>">
+                    <h5>Nome da campanha</h5>
+                    <input id="cuponsPromocionaisNome" class="form-control" type="text" placeholder="Insira o nome da campanha" maxlength="40">    
+                </div>
+                <div class="form-group">
+                    <h5>Chamada da campanha</h5>
+                    <textarea class="form-control" id="cuponsPromocionaisChamada" cols="30" rows="10" maxlength="150"></textarea>
+                </div>
+                <div class="form-group w-25">
+                    <h5>Período</h5>
+                    <span>De: <input type="text"  class="form-control" id="cuponsPromocionaisPeriodoInicio"></span>
+                    <span>Até: <input type="text"  class="form-control"  id="cuponsPromocionaisPeriodoFim"></span>
+                </div>
+                <div class="form-group">
+                    <h5>Quantidade de cupons</h5>
+                    <input id="cuponsPromocionaisQuantidade" class="form-control w-25" type="number" value=0 placeholder="Quantidade">   
+                    <p>Deixe 0 para cupons ilimitados</p> 
+                </div>
+                <button id="salvarCampanhaCupons" onclick="inserirCampanhaCupons()" class="btn btn-success w-50 mt-3">Salvar</button>
+            
+             </div>
+        </div>
+    </div>
+    <script>
+        let opcoes = {
+           dateFormat: 'dd/mm/yy',
+           dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+           dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+           dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+           monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+           monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+           nextText: 'Próximo',
+           prevText: 'Anterior',
+           minDate: 0 
+       }
+        $("#cuponsPromocionaisPeriodoInicio").datepicker(opcoes);
+        $("#cuponsPromocionaisPeriodoFim").datepicker(opcoes);
+    </script>
+</body>
+</html>
+
+

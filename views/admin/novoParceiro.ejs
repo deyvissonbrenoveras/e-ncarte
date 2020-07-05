@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Parceiro - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 col-md-4">
+                <a href="/admin/editarcliente?idCliente=<%= cliente._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>
+                <form action="/parceiro/inserir" method="POST" enctype="multipart/form-data">
+                    <h1>Novo Parceiro</h1>
+                    <input class="d-none" type="text" id="idCliente" value="<%= cliente._id %>" name="idCliente">
+                    <h5>Nome</h5>
+                    <input id="parceiroNome" class="form-control" type="text" placeholder="Nome" name="nome">
+                    <h5>Logo</h5>
+                    <input id="parceiroLogo" class="form-control-file" type="file" name="logo">
+                    <input type="submit" class="btn btn-success mt-3" value="Salvar">
+                </form>    
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

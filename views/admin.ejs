@@ -1,0 +1,105 @@
+<%
+//Pega o cliente pelo id enviado na query
+var cliente = {}
+    if (query._id){
+        clientes.forEach(cli=>{
+            if (cli._id == query._id)
+                cliente = cli;
+        })
+    }   
+//Pega o usuário pelo id enviado na query
+var user = {}  
+    if (query._idusuario){
+        users.forEach(usr=>{
+            if (usr._id == query._idusuario)
+                user = usr;
+        })
+    }
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head')%>
+    <%-include('partials/bootstrapjs')%>
+    <title>Encarte Digital</title>
+</head>
+<body class="bg-light">
+    <%-include('partials/menu')%>  
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <% if (!userLogado.name) { %>
+                    <h5>Usuário: <%= userLogado._id %> </h5>
+                <% } else { %>
+                    <h5>Usuário: <%= userLogado.name %></h5>                    
+                <% } %>               
+                <a href="#" id="sair">Sair</a>
+            </div>
+        </div>
+        <div id="areaTabAdmin" class="row"> 
+            <% switch (query.menu){
+                case "clientes": %>
+                    <%-include('partials/admin/clientes')%>
+                    <% break;
+                case "usuarios": %>
+                    <%-include('partials/admin/usuarios')%>
+                    <%break;
+                case "novocliente": %>
+                    <%-include('partials/admin/novoCliente')%>
+                    <%break;
+                case "editarcliente": %>
+                    <%-include('partials/admin/editarCliente', {cliente})%>
+                    <%break;
+                case "novoproduto": %>
+                    <%-include('partials/admin/novoProduto')%>
+                    <%break;
+                case "editarproduto": %>
+                    <%- include('partials/admin/editarProduto', {cliente})%>
+                    <%break;
+                case "novofiliado": %>
+                    <%- include('partials/admin/novoFiliado')%>
+                    <%break; 
+                case "editarfiliado": %>
+                    <%- include('partials/admin/editarFiliado', {cliente})%>
+                    <%break;  
+                case "novousuario": %>
+                    <%- include('partials/admin/novoUsuario')%>
+                    <%break;  
+                case "editarusuario": %>
+                    <%- include('partials/admin/editarUsuario', {user})%>
+                    <%break; 
+                case "editarclientesliberados": %>
+                    <%- include('partials/admin/editarClientesLiberados', {user})%>
+                    <%break;
+                case "cupons": %>
+                    <%- include('partials/admin/cupons', {cliente})%>
+                    <%break; 
+                case "novacampanhacupons": %>
+                    <%- include('partials/admin/novaCampanhaCupons', {cliente})%>
+                    <%break;   
+                case "campanhacuponsfinalizada": %>
+                    <%- include('partials/admin/campanhaCuponsFinalizada', {cliente})%>
+                    <%break; 
+                case "editarcampanhacuponsativa": %>
+                    <%- include('partials/admin/editarCampanhaCuponsAtiva', {cliente})%>
+                    <%break;
+                case "novoparceiro": %>
+                    <%- include('partials/admin/novoParceiro', {cliente})%>
+                    <%break;
+                case "editarparceiro": %>
+                    <%- include('partials/admin/editarParceiro', {cliente})%>
+                    <%break;
+                default: %>
+                    <%-include('partials/admin/clientes')%>
+                    <% break;
+            }  %> 
+        </div>
+    </div> 
+  <script>
+      $("#sair").click(()=>{
+        document.cookie = "authorization-token=; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+        window.location.reload();
+      })
+  </script>     
+</body>
+</html>

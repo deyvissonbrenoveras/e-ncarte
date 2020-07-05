@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10"> 
+                <ul id="adminTab"class="nav nav-tabs">   
+                    <li class="nav-item">
+                        <a id="clientesCadastrados" href="/admin/clientes" onclick="tabAdminClienteClick(this)" class="nav-link">Clientes</a>
+                    </li>
+                    <% if (userLogado.privilegio < 2) { %>
+                        <li class="nav-item">
+                            <a id="usuarios" href="/admin/usuarios" onclick="tabAdminClienteClick(this)" class="nav-link active">Usuários</a>
+                        </li>
+                    <% } %>                    
+                </ul>   
+                <div class="d-flex justify-content-end">
+                    <a href="/admin/novousuario" class="btn btn-primary text-white my-1">Novo</a> 
+                </div>
+                <table id="usuariosTable" class="table">
+                    <thead>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                    </thead>
+                    <tbody>
+                        <% users.forEach((user, index)=>{ 
+                            if (userLogado.privilegio < user.privilegio){%>
+                                <tr class="list-row" id="<%= user._id %>">
+                                    <td><%= index + 1 %></td>
+                                    <td><%= user.name %></td>
+                                    <td><%= user.email %></td>
+                                </tr>
+                            <%}                                   
+                         }); %>                
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#usuariosTable").children("tbody").children().click(function (){        
+            window.location.href = "/admin/editarusuario?idUsuario=" + $(this).attr("id");
+        })
+    </script>
+</body>
+</html>
+
+
+

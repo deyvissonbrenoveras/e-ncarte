@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar clientes liberados - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <a href="/admin?menu=editarusuario&_idusuario=<%= user._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>    
+                <input class="d-none" type="text" id="idUsuario" value="<%= user._id %>">
+                <h4> Editar clientes liberados para <%= user.name %></h4>    
+                <table id="clientes" class="table mt-1 text-center mt-3">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Logo</th>
+                            <th scope="col">Liberado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clientesLiberadosBody">            
+                        <% for (let i = 0; i < clientes.length; i++) { %>
+                            <tr class="list-row" id="<%= clientes[i]._id %>">
+                                <th scope="row"><%= i + 1 %></th>
+                                <td><%= clientes[i].nome %></td>
+                                <td><%= clientes[i].nomeUrl %></td>
+                                <td><img src="/img/logos/<%= clientes[i].logo %>" class="img-logo-admin"></td>
+                                <%
+                                    var liberado = false;
+                                    user.clientes.forEach(cli=>{
+                                        if (clientes[i]._id == cli){
+                                            liberado = true;
+                                        }
+                                    })
+                                 %>
+                                <td><input type="checkbox" <%= liberado ? "checked" : "" %>></td>
+                            </tr>   
+                        <% }%>
+                    </tbody>
+                </table>  
+                <div class="mt-5 text-right">
+                    <button class="btn btn-success w-25" onclick="editarClientesLiberados()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

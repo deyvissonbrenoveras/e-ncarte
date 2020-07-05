@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Clientes - e-ncarte</title>
+</head>
+<body class="bg-light">    
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <ul id="adminTab"class="nav nav-tabs">   
+                    <li class="nav-item">
+                        <a id="clientesCadastrados" href="/admin/clientes" onclick="tabAdminClienteClick(this)" class="nav-link active">Clientes</a>
+                    </li>
+                    <% if (userLogado.privilegio < 2) { %>
+                        <li class="nav-item">
+                            <a id="usuarios" href="/admin/usuarios" onclick="tabAdminClienteClick(this)" class="nav-link">Usuários</a>
+                        </li>
+                    <% } %>                    
+                </ul>
+                <% if (userLogado.privilegio < 2 ){ %>
+                    <div class="d-flex justify-content-end">
+                        <a href="/admin/novocliente" class="btn btn-primary btn-md text-white my-1 ml-auto">Novo</a> 
+                    </div>
+                <% } %>
+                <table id="clientes" class="table mt-1 text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Logo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% function renderizarCliente(clienteARenderizar, index) { %>
+                            <tr class="list-row" id="<%= clienteARenderizar._id %>">
+                                <th scope="row"><%= index %></th>
+                                <td><%= clienteARenderizar.nome %></td>
+                                <td><%= clienteARenderizar.nomeUrl %></td>
+                                <td><img src="/img/logos/<%= clienteARenderizar.logo %>" class="img-logo-admin"></td>
+                            </tr> 
+                        <% } 
+                        if (userLogado.privilegio < 2)
+                            for (let i = 0; i < clientes.length; i++) {            
+                                renderizarCliente(clientes[i], i + 1)          
+                            } 
+                        else {
+                            for (let j = 0; j < userLogado.clientes.length; j++){
+                                for (let i = 0; i < clientes.length; i++) { 
+                                    if (userLogado.clientes[j] == clientes[i]._id)          
+                                        renderizarCliente(clientes[i], i + 1);          
+                                }  
+                            }
+                        }    
+                        %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#clientes").children("tbody").children().click(function (){
+            window.location.href = "/admin/editarcliente?idCliente=" + $(this).attr("id");
+        })
+    </script>   
+</body>
+</html>
+
+
+
+  
+     

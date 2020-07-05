@@ -1,0 +1,20 @@
+<nav id="nav-menu" class="navbar navbar-expand-sm bg-light navbar-light">
+    <img class="navbar-brand logo-site" src="/img/logo.png" alt="">
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="menu" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-5"><a class="nav-link" href="/">Início</a></li>
+            <li class="nav-item dropdown mr-5">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Clientes</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">            
+                        <% for (let cliente of clientes){%>
+                            <a id="<%=cliente.nomeUrl%>"class="dropdown-item" href="/cliente/<%=cliente.nomeUrl%>"><%=cliente.nome%></a>
+                        <%}%> 
+                </div>
+            </li>
+            <li class="nav-item mr-5"><a class="nav-link" href="/contato">Contato</a></li>
+        </ul>
+    </div>
+</nav>

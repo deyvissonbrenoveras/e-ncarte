@@ -1,0 +1,124 @@
+<%
+    function convertDate(date){
+        let result = "";
+        result = date.getDate() + "/";
+        result += (date.getMonth() + 1) + "/";
+        result += date.getFullYear();
+        return result;
+    }
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupons promocionais - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10">  
+                <a href="/admin/clientes"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>     
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="/admin/editarcliente?idCliente=<%= cliente._id %>" class="nav-link">Editar cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">Cupons promocionais</a>
+                    </li>
+                </ul>                
+                <div class="border">
+                    <div class="d-flex justify-content-end">
+                        <a href="/admin/novacampanhacupons?idCliente=<%= cliente._id %>" class="btn btn-primary text-white my-1">Nova campanha</a> 
+                    </div>
+                    <% if (cliente.cuponsPromocionais.length > 0) { %>
+                        <div class="text-center">
+                            <h4>Campanha ativa</h4>
+                        </div> 
+                        <table id="campanhaAtiva" class="table mt-1 text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Período</th>
+                                    <th scope="col">Quantidade de cupons </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% let campanhaAtiva = cliente.cuponsPromocionais[cliente.cuponsPromocionais.length - 1];
+                                    if (campanhaAtiva.ativa) { %>
+                                        <tr class="list-row" id="<%= campanhaAtiva._id %>" onclick="abrirCampanhaAtiva(this)">
+                                            <td><%=campanhaAtiva.nome %></td>
+                                            <td><%= convertDate(campanhaAtiva.periodoInicio) %> - <%= convertDate(campanhaAtiva.periodoFim) %></td>
+                                            <td>
+                                                <% 
+                                                    let quantidade = campanhaAtiva.quantidadeCupons;
+                                                    if (quantidade == 0){ %>
+                                                        Ilimitada
+                                                    <% } 
+                                                    else{ %>
+                                                        <%= quantidade %>
+                                                    <% }
+                                                %>
+                                                
+                                            </td>
+                                        </tr>
+                                    <% } %>                                   
+                            </tbody>
+                        </table>   
+                        <div class="text-center mt-5">
+                            <h4>Campanhas finalizadas</h4>
+                        </div> 
+                        <table id="campanhasFinalizadas" class="table mt-1 text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Período</th>
+                                    <th scope="col">Quantidade de cupons </th>
+                                </tr>
+                            </thead>
+                            <tbody id="campanhasFinalizadasBody">
+                                <% while (cliente.cuponsPromocionais.length > 0) {
+                                    let campanha = cliente.cuponsPromocionais.pop(); 
+                                    if (!campanha.ativa){ %>
+                                        <tr class="list-row" id="<%= campanha._id %>">
+                                            <td><%=campanha.nome %></td>
+                                            <td><%= convertDate(campanha.periodoInicio) %> - <%= convertDate(campanha.periodoFim) %></td>
+                                            <td>
+                                                <% 
+                                                    let quantidade = campanha.quantidadeCupons;
+                                                    if (quantidade == 0){ %>
+                                                        Ilimitada
+                                                    <% } 
+                                                    else{ %>
+                                                        <%= quantidade %>
+                                                    <% }
+                                                %>                                                
+                                            </td>
+                                        </tr>                     
+                                    <% }
+                                 } %>                          
+                            </tbody>
+                        </table>   
+                    <% } %>  
+                </div>
+               
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#campanhasFinalizadasBody").children().click(function(){
+            window.location.href = "/admin/campanhacuponsfinalizada?idCliente=<%= cliente._id %>&idCampanha=" + $(this).attr("id");
+        })
+        function abrirCampanhaAtiva(element){
+            window.location.href = "/admin/editarcampanhacuponsativa?idCliente=<%= cliente._id %>&idCampanha=" + element.id;
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%-include('partials/head')%>
+    <title>Login - E-ncarte</title>
+</head>
+<body> 
+    <%-include('partials/menu')%>         
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-8 col-lg-5 p-3 border mx-auto text-center bg-white">                
+                <h2>Bem vindo ao E-ncarte</h2>
+                <h4>Login</h4>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input id="userEmail" type="text" class="form-control" placeholder="E-mail">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">*</span>
+                    </div>
+                    <input id="userPassword" type="password" class="form-control" placeholder="Senha">
+                </div>
+                <button onclick="login()" class="btn btn-info w-50">Login<button>
+            </div>
+        </div>
+    </div>
+    <%-include('partials/bootstrapjs')%>
+    
+<script>
+    function enterLogin(event){
+        if (event.keyCode == 13){
+            login();
+        }
+    }
+    $("#userPassword").keypress(enterLogin);
+    $("#userEmail").keypress(enterLogin);
+</script>
+</body>
+</html>

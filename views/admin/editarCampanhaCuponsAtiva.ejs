@@ -1,0 +1,195 @@
+<%
+    function convertDate(date){
+        let result = "";
+        result = date.getDate() + "/";
+        result += (date.getMonth() + 1) + "/";
+        result += date.getFullYear();
+        return result;
+    }
+    
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Campanha de Cupons - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row p-5">
+            <div class="col-12 col-lg-4">
+                <a href="/admin/cuponspromocionais?idCliente=<%= cliente._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>     
+                <input id="idCliente" type="text" class="d-none" value="<%= cliente._id %>">
+                <input id="idCampanha" type="text" class="d-none" value="<%= campanha._id %>">
+                <div class="form-group">
+                    <h5>Nome da campanha</h5>
+                    <input id="cuponsPromocionaisNome" class="form-control" type="text" value="<%= campanha.nome %>" maxlength="40">    
+                </div>
+                <div class="form-group">
+                    <h5>Chamada da campanha</h5>
+                    <textarea class="form-control" id="cuponsPromocionaisChamada" cols="30" rows="10" maxlength="150"><%= campanha.chamada %></textarea>
+                </div>
+                <div class="form-group w-50">
+                    <h5>Período</h5>
+                    <span>De: <input type="text"  class="form-control" id="cuponsPromocionaisPeriodoInicio" value="<%= convertDate(campanha.periodoInicio) %>"></span>
+                    <span>Até: <input type="text"  class="form-control"  id="cuponsPromocionaisPeriodoFim" value="<%= convertDate(campanha.periodoFim) %>"></span>
+                </div>
+                <button onclick="encerrarCampanhaCupons()" class="btn btn-danger my-1 my-lg-5 ml-auto mr-2">Encerrar Campanha</button>
+                <button onclick="editarCampanhaCupons()" class="btn btn-success my-1 my-lg-5 ml-auto mr-2">Salvar alterações</button>
+            
+             </div>
+             <div class="col-8">
+                <div class="d-flex justify-content-between m-3">
+                    <h5>Opções personalizadas</h5>
+                    <div>
+                        <a 
+                            class="btn btn-secondary ml-5"
+                            href="/cupons/downloadplanilhacodigos?idCliente=<%= cliente._id %>&idCampanha=<%= campanha._id %>"
+                        >
+                            Exportar os códigos para excel
+                        </a>
+                        <a class="btn btn-info ml-4" href="/admin/novaopcaopersonalizada?idCliente=<%= cliente._id %>&idCampanha=<%= campanha._id %>">Nova</a>
+                    </div>
+                </div>
+                <table id="opcoesPersonalizadas" class="table">
+                        <tr>
+                            <th>Opção</th>
+                            <th>Qtd Utilizada</th>
+                            <th>Qtd Máxima</th>
+                            <th>Ativa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% campanha.opcoesPersonalizadas.forEach(opcaoPersonalizada=>{ %>
+                            <tr class="list-row" id="<%= opcaoPersonalizada._id %>">
+                                <td><%= opcaoPersonalizada.descricao %></td>
+                                <td><%= opcaoPersonalizada.quantidadeUtilizada %></td>                  
+                                <td><%= opcaoPersonalizada.quantidadeDisponivel %></td>   
+                                <td><% if (opcaoPersonalizada.ativa) { %>
+                                    <i style="color: green;" class="fas fa-check"></i>
+                                <% } else { %>
+                                    <i style="color: red;" class="fas fa-times red"></i>
+                                <% } %>
+                                </td> 
+                            </tr>
+                        <% }) %>
+                        
+                    </tbody>
+                </table>              
+             </div>
+             <div class="col-12">
+                <h5 class="mt-5">Participantes</h5>    
+                <div class="form-inline">
+                    <span>
+                        Quantidade de cupons:             
+                        <% 
+                            let quantidade = campanha.quantidadeCupons;
+                            if (quantidade == 0){ %>
+                                Ilimitada
+                            <% } 
+                            else{ %>
+                                <%= quantidade %>
+                            <% }
+                        %>
+                        &nbsp;/&nbsp; 
+                    </span> 
+                    <span>Total de participantes: <%= campanha.participantes.length %> &nbsp;/&nbsp; </span>
+                    <%
+                        let totalResgatado = 0;
+                        campanha.participantes.forEach(camp=>{
+                            if (camp.cupomResgatado)
+                                totalResgatado++;
+                        })
+                    %>
+                    <span>Cupons resgatados: <%= totalResgatado %></span>
+                    <div class="input-group my-3 ml-auto">
+                        <span class="input-group-prepend">
+                            <span class="input-group-text">pesquisar</span>
+                        </span>
+                        <input id="pesquisa" type="text" class="form-control">
+                    </div>
+                    <a 
+                        class="btn btn-secondary ml-5"
+                        href="/cupons/downloadplanilhaparticipantes?idCliente=<%= cliente._id %>&idCampanha=<%= campanha._id %>"
+                    >
+                        Exportar participantes para excel
+                    </a>
+                </div>
+                
+                <table id="tableParticipantesCampanha" class="table">
+                    <thead>
+                        <tr class="rowParticipantesCampanha">
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Opção</th>
+                            <th>Código</th>
+                            <th>Cupom Resgatado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% campanha.participantes.forEach((participante, index)=>{ %>
+                            <tr class="rowParticipantesCampanha">
+                               <td><%= index + 1 %></td>
+                               <td><%= participante.nome %></td>
+                               <td><%= participante.email %></td>
+                               <td>
+                                   <% 
+                                       let opcaoPersonalizada = campanha.opcoesPersonalizadas.filter((opcoes)=>{
+                                           return opcoes._id.equals(participante.opcaoPersonalizada);
+                                       })[0]
+                                   %>
+                                   <% if (opcaoPersonalizada) {%>
+                                       <%= opcaoPersonalizada.descricao %>
+                                   <% } else { %>
+                                       -
+                                   <% } %>
+                               </td>
+                               <td><%= participante.codigo ? participante.codigo : "-" %></td>
+                               <td>
+                                   <i class="fas <%= participante.cupomResgatado ? 'fa-check-square text-success' : 'fa-square text-muted' %>"></i>
+                                </td>
+                                <%if (!participante.cupomResgatado) { %>
+                                    <td><button onclick="resgatarCupom('<%= participante._id %>')" class="btn btn-sm btn-primary">Resgatar</button></td>
+                                <% } %>                                
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+             </div>
+        </div>
+    </div>
+    <script>
+        $("#pesquisa").on("keyup", function pesquisarParticipante(){
+            var value = $(this).val().toLowerCase();
+            $("#tableParticipantesCampanha tr").filter(function(){
+               $(this).toggle($(this).text().toLocaleLowerCase().indexOf(value) > -1);
+            })
+        });
+        $("#opcoesPersonalizadas").children("tbody").children().click(function (){
+            window.location.href = `/admin/editaropcaopersonalizada?idCliente=<%= cliente._id %>&idCampanha=<%= campanha._id %>&idOpcao=${$(this).attr("id")}`;
+        })
+        let opcoes = {
+           dateFormat: 'dd/mm/yy',
+           dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+           dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+           dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+           monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+           monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+           nextText: 'Próximo',
+           prevText: 'Anterior',
+           minDate: 0 
+       }
+        $("#cuponsPromocionaisPeriodoInicio").datepicker(opcoes);
+        $("#cuponsPromocionaisPeriodoFim").datepicker(opcoes);
+        
+    </script>
+</body>
+</html>
+
+ 

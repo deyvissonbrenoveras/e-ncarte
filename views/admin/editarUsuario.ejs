@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 p-3">
+                <a href="/admin/usuarios"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>    
+                <h4>Editar usuário</h4>
+                <input class="d-none" type="text" id="idUsuario" value="<%= user._id %>">
+                <div class="input-group mt-3">
+                    <input id="userName" type="text" placeholder="Nome" class="form-control" value="<%= user.name %>">
+                </div>
+                <div class="input-group mt-3">
+                    <div class="input-group-pretend">
+                        <span class="input-group-text">@</span>
+                    </div>
+                    <input id="userEmail"type="text" placeholder="E-mail" class="form-control" value="<%= user.email %>">
+                </div>
+                <div class="input-group mt-3">
+                    <input id="userPassword" type="password" placeholder="Senha" class="form-control">
+                </div>
+                <%if (userLogado.privilegio == 0) { %>
+                    <div class="input-group mt-3">
+                        <div class="input-group-prepend">
+                        <label class="input-group-text" for="privilegio">Privilégio</label>
+                        </div>
+                        <select class="custom-select" id="privilegio">
+                        <option <%= (user.privilegio == 1) ? "selected" : "" %> value="1">Administrador</option>
+                        <option <%= (user.privilegio == 2) ? "selected" : "" %> value="2">Usuário</option>
+                        </select>
+                    </div>
+                 <% } %>
+                <div class="mt-3 text-right">
+                    <button onclick="excluirUsuario()" class="btn btn-danger w-25">Excluir</button>
+                    <button class="btn btn-success w-25" onclick="editarUsuario()">Salvar</button>
+                </div>
+            </div>
+                <% if (user.privilegio == 2) { %>
+                    <div class="col-12">  
+                        <h4>Clientes liberados para <%= user.name %></h4>
+                        <div class="text-right my-3">
+                            <a class="btn btn-info text-white " href="/admin/editarclientesliberados?idUsuario=<%= user._id %>">Editar clientes liberados</a>
+                        </div>
+                        <table id="clientes" class="table mt-1 text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">URL</th>
+                                    <th scope="col">Logo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    user.clientes.forEach(clientId=>{
+                                        for (let i = 0; i < clientes.length; i++) {
+                                            if (clientId == clientes[i]._id){ %>
+                                                <tr class="list-row" id="<%= clientes[i]._id %>">
+                                                    <th scope="row"><%= i + 1 %></th>
+                                                    <td><%= clientes[i].nome %></td>
+                                                    <td><%= clientes[i].nomeUrl %></td>
+                                                    <td><img src="/img/logos/<%= clientes[i].logo %>" class="img-logo-admin"></td>
+                                                </tr> 
+                                            <%}
+                                        }
+                                    });%>
+                            </tbody>
+                        </table>  
+                    </div>   
+                <% } %>    
+        </div>
+    </div>
+</body>
+</html>
+
+
+

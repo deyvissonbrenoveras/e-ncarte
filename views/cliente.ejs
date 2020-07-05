@@ -1,0 +1,290 @@
+<%
+function mudarCasaDecimal(value, places, symbol, thousand, decimal) {
+    places = !isNaN(places = Math.abs(places)) ? places : 2;
+    symbol = symbol !== undefined ? symbol : "$";
+    thousand = thousand || ",";
+    decimal = decimal || "."; 
+        negative = value < 0 ? "-" : "",
+        i = parseInt(value = Math.abs(+value || 0).toFixed(places), 10) + "",
+        j = (j = i.length) > 3 ? j % 3 : 0;
+    return symbol + negative + (j ? i.substr(0, j) + thousand : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousand) + (places ? decimal + Math.abs(value - i).toFixed(places).slice(2) : "");
+}
+function convertDate(date){
+    let result = "";
+    result = date.getDate() + "/";
+    result += (date.getMonth() + 1) + "/";
+    result += date.getFullYear();
+    return result;
+}
+%>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <%- include('partials/head') %>
+    <meta property="og:url" content="https://e-ncarte.com/cliente/<%= cliente.url %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="e-ncarte <%= cliente.nome %>" />
+    <meta property="og:description" content="Veja o Encarte Digital da(o) <%= cliente.nome %>" />
+    <meta property="og:image" content="/img/logos/<%=cliente.logo%>" />
+    <title>e-ncarte <%=cliente.nome%></title>
+</head>
+<body>
+    <%- include('partials/menu') %>        
+        <div class="container-fluid my-2">
+            <div class="row">                
+                <!--INÍCIO FILIADOS-->
+                <% if (cliente.filiados && cliente.filiados.length > 0) {%>
+                    <div id="apoio" class="col-12 col-md-2 order-2 order-md-1 text-center mx-auto">
+                        <h3 id="titulo-apoio">Filiados</h3>
+                        <div class="row">
+                            <% if (cliente.filiados) cliente.filiados.forEach(filiado=>{ %>
+                                <div class="col-6 col-md-12  my-2">
+                                    <div class="card">
+                                        <img class="img-filiado mx-auto p-1" src="/img/filiados/<%= filiado.logo %>" alt="<%= filiado.nome %>">
+                                        <div class="card-body">
+                                            <p class="card-text endereco-filiado"><%= filiado.endereco %></p>
+                                        </div>
+                                        
+                                        <div class="card-footer"> 
+                                            <% if (filiado.telefone){ %>
+                                                <a class="social-filiado" href="https://api.whatsapp.com/send?phone=55<%= filiado.telefone %>">
+                                                    <h6 class="nome-filiado d-inline"><%= filiado.nome %></h6>
+                                                    <img class="img-social-filiado" src="/img/util/whatsapp.webp" alt="whatsapp">
+                                                </a> 
+                                            <% } else { %>
+                                                <h6 class="nome-filiado d-inline"><%= filiado.nome %></h6>
+                                            <% } %>                                      
+                                            
+                                        </div>
+                                    </div>                                
+                                </div> 
+                                <% }); %> 
+                        </div>                       
+                        </div><!--FIM FILIADOS-->
+                    <% } %>                    
+                <!--INÍCIO DA ÁREA CENTRAL-->
+                <div id="area-central" class="col-12 col-md-9 order-1 order-md-2 border mx-auto">
+                    <div class="col-12 mx-auto text-center">                       
+                        <img class="cliente-logo my-1 mx-auto" src="/img/logos/<%=cliente.logo%>" alt="<%=cliente.nome%>">
+                        <% if (cliente.parceiros && cliente.parceiros.length > 0) {%>
+                            <h3 id="titulo-apoio">Parceiros</h3>
+                            <div class="row">
+                               <% cliente.parceiros.forEach(parceiro=>{ %>
+                                    <div class="col-6 col-md-3 my-2">
+                                        <div class="card">
+                                            <img class="img-parceiros mx-auto p-1" src="/img/parceiros/<%= parceiro.logo %>" alt="<%= parceiro.nome %>"> 
+                                            <small><%= parceiro.nome %></small>
+                                        </div>                                
+                                    </div> 
+                                <% }) %>     
+                            </div>                               
+                        <% } %>
+                        <img class="cliente-campanha my-3 mx-auto" src="/img/logos/<%=cliente.imagemCampanha%>" alt="<%=cliente.nome%>">
+                        <div class="col-12 col-md-6 ml-auto my-5">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>"><img class="share-btn" src="/img/util/bc-fb.png" alt=""></a>
+                            <a href="https://twitter.com/intent/tweet?url=<%= url %>"><img class="share-btn" src="/img/util/bc-tw.png" alt=""></a>
+                            <a href="https://api.whatsapp.com/send?text=<%= url %>"><img class="share-btn" src="/img/util/bc-whats.png" alt=""></a>
+                            <a href="https://telegram.me/share/url?url=<%= url %>"><img class="share-btn" src="/img/util/bc-tg.png" alt=""></a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=<%= url %>"><img class="share-btn" src="/img/util/bc-lkd.png" alt=""></a>
+                            <a href="mailto:?subject=e-ncarte <%= cliente.nome %>&body=Veja o Encarte Digital da(o) <%= cliente.nome %> <%= url %>"><img class="share-btn" src="/img/util/bc-mail.png" alt=""></a>                           
+                        </div>  
+                    </div>                    
+                    <!--INÍCIO PRODUTOS-->
+                        <!-- PRODUTOS EM DESTAQUE-->
+                        <div class="row mr-1 justify-content-around">
+                            <%for (let produto of cliente.produtos){
+                                if (produto.destaque){%>
+                                    <div class="col-4 col-sm-3">  
+                                        <div class="text-center produto-destaque" onclick="showModalProdutos(this)">
+                                            <img src="/img/produtos/<%=produto.imagem%>" class="produto-destaque-img">
+                                            <p class="produto-destaque-desc"><%=produto.descricao%></p>
+                                            <% if (produto.preco != 0 ) { %>
+                                                <h2 class ="produto-destaque-preco"><%=mudarCasaDecimal(produto.preco, 2, "", ".", ",");%></h2>
+                                            <% } %>    
+                                            </div>
+                                    </div>
+                                <%}                            
+                            }%>
+                        </div>
+                        <!-- PRODUTOS -->
+                        <div class="row mr-1 mt-2 justify-content-around">
+                            <%for (let produto of cliente.produtos){
+                                if (!produto.destaque){%>
+                                    <div class="col-2">  
+                                        <div class="text-center produto" onclick="showModalProdutos(this)">
+                                            <img src="/img/produtos/<%=produto.imagem%>" class="produto-img">
+                                            <p class="produto-desc"><%=produto.descricao%></p>
+                                            <% if (produto.preco != 0 ) { %>
+                                                <h2 class ="produto-preco"><%=mudarCasaDecimal(produto.preco, 2, "", ".", ",");%></h2>
+                                            <% } %> 
+                                            </div>
+                                    </div>
+                                <%}                             
+                            }%>
+                            <!-- MODAL PRODUTOS -->
+                            <div class="modal fade" id="modalProdutos" tabindex="-1" role="dialog">
+                                <div class="modal-dialog modal-dialog-centered">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="modalTitle"></h5>
+                                      <button type="button" class="close" data-dismiss="modal">
+                                        <span>&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img id="modalImg" src="" class="produto-img-modal">
+                                        <h2 id="modalPreco"></h2>
+                                    </div> 
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    </div>                                   
+                                  </div>
+                                </div>
+                              </div>
+                            <!-- FIM MODAL PRODUTOS -->
+                        </div> <!--FIM PRODUTOS-->                        
+                    </div><!--FIM DA ÁREA CENTRAL-->
+                   
+                </div>
+            </div>       
+        </div>
+        <!-- MODAL CUPONS PROMOCIONAIS INÍCIO -->
+        <% if (cliente.cuponsPromocionais && cliente.cuponsPromocionais.length > 0) { 
+            var promocao = cliente.cuponsPromocionais.pop();
+            var now = new Date().setHours(0,0,0,0);
+            if (promocao.ativa & (now >= promocao.periodoInicio && promocao.periodoFim >= now) ) { %>               
+               <div class="modal fade" id="modalPromocao" tabindex="-1" role="dialog">
+                   <input class="d-none" type="text" id="idCliente" value="<%= cliente._id %>">
+                   <input class="d-none" type="text" id="idCampanha" value="<%= promocao._id %>">
+                   <div class="modal-dialog" role="document">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h5 class="modal-title"><%= promocao.nome %></h5>
+                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                   <span aria-hidden="true">&times;</span>
+                               </button>
+                           </div>
+                           <div class="modal-body">
+                               <div>
+                                   <p><%= promocao.chamada %></p>
+                               </div>
+                               <div class="input-group mb-3">
+                                   <div class="input-group-prepend">
+                                       <span class="input-group-text">Nome</span>
+                                   </div>
+                                   <input type="text" id="participanteNome" class="form-control" placeholder="Insira seu nome aqui">
+                               </div>
+                               <div class="input-group mb-3">
+                                   <div class="input-group-prepend">
+                                       <span class="input-group-text">E-mail</span>
+                                   </div>
+                                   <input type="text" id="participanteEmail" class="form-control" placeholder="Insira seu E-mail aqui">
+                               </div>
+                               <%
+                               //Verifica se tem alguma opção ativa e com cupons disponiveis para exibir o select
+                               let promocoesAtivas = promocao.opcoesPersonalizadas.filter(opc => {
+                                   return (opc.ativa && opc.quantidadeUtilizada < opc.quantidadeDisponivel)
+                               });
+                               if (promocao.opcoesPersonalizadas && promocoesAtivas.length > 0){
+                               %>                                                
+                                   <div class="input-group mb-3">
+                                       <div class="input-group-prepend">
+                                           <span class="input-group-text">Código promocional</span>
+                                       </div>
+                                       <input type="text" id="participanteCodigo" class="form-control" placeholder="Insira o código aqui">
+                                   </div>
+                                   <div class="input-group mb-3">
+                                       <div class="input-group-prepend">
+                                           <span class="input-group-text">Selecione uma opção</span>
+                                       </div> 
+                                       <select class="custom-select" name="opcaoPersonalizada" id="opcaoPersonalizada">
+                                           <% promocao.opcoesPersonalizadas.forEach(opcaoPersonalizada=>{ 
+                                               if (opcaoPersonalizada.ativa && (opcaoPersonalizada.quantidadeUtilizada < opcaoPersonalizada.quantidadeDisponivel)) {%>
+                                                   <option value="<%= opcaoPersonalizada._id %>"><%= opcaoPersonalizada.descricao %></option>
+                                               <% } %>                                                            
+                                           <% }) %>
+                                       </select>
+                                   </div>
+                               <% } %>                                           
+                           </div>
+                           <div class="modal-footer">
+                               <span>Cupons válidos até o dia <%= convertDate(promocao.periodoFim) %> ou até se esgotarem.</span>
+                               <button type="button" class="btn btn-primary" onclick="inserirParticipante()">Obter cupom</button>
+                           </div>
+                       </div>
+                   </div>                                                                      
+               </div>
+           <% }                           
+        } %><!-- MODAL CUPONS PROMOCIONAIS FIM -->
+        <div class="baloes-sticky">
+            <% if (promocao && promocao.ativa && (now >= promocao.periodoInicio && promocao.periodoFim >= now) ) { %>  
+                <div class="toast promocao <%= cliente.whatsapp ? 'promocao-ajuste-whatsapp': ''%>" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                      <img src="/img/logos/<%=cliente.logo%>" class="promocao-logo rounded mr-2" alt="">
+                      <strong class="mr-auto"><%= promocao.nome %></strong>
+                      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span id="fecharToast" aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="toast-body">
+                        <%= promocao.chamada %>
+                    </div>
+                  </div>
+            <% } %>      
+            <!--BOTÃO FLUTUANTE WHASTAPP-->
+            <% if (cliente.whatsapp) {%>
+                <div id="botaoFlutuanteWhatsapp">
+                    <div></div>
+                    <div>Compre agora</div>
+                </div>
+            <% } %>     
+        </div>                      
+        <footer class="bg-light">
+            <div class="container-fluid">
+                <div class="row mt-3 p-3">
+                    <div class="col-12 col-sm-4 mt-3 p-1 text-center">
+                        <img class="navbar-brand logo-footer" src="/img/logos/<%= cliente.logo %>" alt="">
+                    </div>
+                    <div class="col-12 col-sm-4 mt-3 p-1 text-center">
+                        <h3 class=""><%= cliente.cidade %></h3>
+                        <p><%= cliente.endereco %></p>
+                    </div>
+                    <div class="col-12 col-sm-4 mt-3 p-1 text-center">
+                        <h3>Contato:</h3>
+                        <p><%= cliente.contato %></p>
+                    </div>
+                </div>
+            </div>
+        </footer>   
+    <%- include('partials/bootstrapjs') %>
+    <script>
+        function showModalProdutos(element){
+            $("#modalProdutos").modal();
+            let produtoDesc = element.children[0].value;
+            console.log(element.children[0])
+            document.getElementById("modalTitle").innerHTML = element.children[1].innerHTML;
+            document.getElementById("modalImg").src = element.children[0].src;
+            document.getElementById("modalPreco").innerHTML = `Preço: ${element.children[2].innerHTML}`;
+        }
+        options = {
+            delay: 2000,
+            autohide: false,
+            animation: true
+        }
+        $('.toast').toast(options).toast("show");
+         $(".toast").click((event)=>{
+            const id = $(event.target).attr("id");
+            if (id && id == "fecharToast"){
+                $('.toast').toast();
+            }
+            else{
+                $("#modalPromocao").modal();
+                $('.toast').toast();
+            }
+         })
+        $("#botaoFlutuanteWhatsapp").click(event =>{
+            window.location.href = `https://api.whatsapp.com/send?phone=55<%= cliente.whatsapp %>`;
+        }) 
+    </script>
+</body>
+</html>

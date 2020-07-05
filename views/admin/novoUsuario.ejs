@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/head')%>
+    <%-include('../partials/bootstrapjs')%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Usuário - e-ncarte</title>
+</head>
+<body class="bg-light">
+    <%-include('../partials/menu')%>  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-6 p-3">
+                    <a href="/admin/usuarios"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>    
+                    <h4>Cadastrar usuário</h4>
+                    <div class="input-group mt-3">
+                        <input id="userName" type="text" placeholder="Nome" class="form-control">
+                    </div>
+                    <div class="input-group mt-3">
+                        <div class="input-group-pretend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input id="userEmail"type="text" placeholder="E-mail" class="form-control">
+                    </div>
+                    <div class="input-group mt-3">
+                        <input id="userPassword" type="password" placeholder="Senha" class="form-control">
+                    </div>
+                    <%if (userLogado.privilegio == 0) { %>
+                        <div class="input-group mt-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="privilegio">Privilégio</label>
+                            </div>
+                            <select class="custom-select" id="privilegio">
+                              <option selected value="1">Administrador</option>
+                              <option value="2">Usuário</option>
+                            </select>
+                        </div>
+                    <% } %>
+                    <div class="mt-3 text-center">
+                        <button class="btn btn-warning w-50" onclick="registrarUsuario()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

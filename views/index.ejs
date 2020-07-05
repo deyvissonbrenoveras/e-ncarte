@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/head')%>
+    <title>e-ncarte</title>
+</head>
+<body id="index-body">
+    <%-include('partials/menu')%>
+        <div class="container-fluid" style="width:100%;">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <div id="carousel" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel" data-slide-to="1"></li>
+                            <li data-target="#carousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active text-center">
+                                <img src="/img/util/carrosel1.webp" class="carousel-image" alt="...">
+                                <h1 class="h1-carousel">Quer expor sua marca, de seus fornecedores, de seus produtos e se conectar com seus clientes? Faça já seu e-ncarte.</h1>
+                            </div>
+                            <div  class="carousel-item text-center">
+                                <img src="/img/util/carrosel2.webp" class="carousel-image" alt="...">
+                                <h1 class="h1-carousel">Não sabe como gerenciar suas campanhas? Faça agora seu cupom digital e aumente suas vendas.</h1>
+                            </div>
+                            <div class="carousel-item text-center">
+                                <img src="/img/util/carrosel3.webp" class="carousel-image" alt="...">
+                                <h1 class="h1-carousel">Receba relatórios, análises e tome as melhores decisões, como? Faça já seu e-ncarte!</h1>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                            <i class="fas fa-angle-left carousel-icon"></i>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                            <i class="fas fa-angle-right carousel-icon"></i>
+                        </a> 
+                    </div>
+                    <div class="secao-2 row m-0 p-2 justify-content-center align-items-center">                        
+                        <div class="col-12 d-flex flex-nowrap justify-content-center">
+                            <a class="botao-contato" href="#" data-toggle="modal" data-target="#modalVideo">Veja o vídeo</a>
+                        </div> 
+                        <div class="col-12 col-sm-6">
+                            <img class="homem-logo" src="/img/util/homem001.webp">
+                        </div>
+                        <div class="col-12 col-sm-4 mt-3 text-center align-self-center">
+                            <h2 class="index-h">Conecte seus clientes aos seus produtos.</h2>
+                            <p class="index-text">Divulgue seus produtos através da internet e obtenha mais vendas através da visibilidade digital.</p>
+                        </div>
+                        <div class="col-12 d-flex flex-nowrap justify-content-center">
+                            <a class="botao-contato" href="#" data-toggle="modal" data-target="#modalContato">Entre em contato</a>
+                        </div> 
+                    </div>
+                    <div class="secao-1 row m-0 p-2 align-items-center justify-content-around">
+                        <div class="col-12 col-sm-4 text-center">
+                            <h2 class="index-h">Tenha controle das suas promoções.</h2>
+                            <p class="index-text">Gerencie suas promoções com controle de cupons.</p>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <img class="mulher-logo" src="/img/util/mulher.webp">
+                        </div>                        
+                    </div>
+                    <!-- <div class="secao-2 row justify-content-center p-5"> 
+                        <div class="text-center col-12">
+                            <h2 class="index-h">Os clientes confiam:</h2>
+                        </div>
+                        <div class="col-12 col-md-4 col-lg-2 text-center text-lg-right my-3">
+                            <img class="depoimento-img" src="/img/util/depoimento1.webp" alt="">
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <h5 class="depoimento-nome">Deyvisson Breno, Sócio fundador - e-ncarte</h5>
+                            <p class="depoimento-comentario">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nisl ante, dapibus eu nibh vel, lobortis semper ante. Nulla vel magna placerat, tempus ante nec, feugiat orci. Maecenas odio erat, blandit non lacinia sed, imperdiet eget libero. Quisque at consectetur lacus.</p>
+                        </div>                                                  
+                        <div class="col-12 d-flex flex-nowrap justify-content-center">
+                            <a class="botao-contato" href="#" data-toggle="modal" data-target="#modalContato">Entre em contato</a>
+                        </div> 
+                    </div> -->
+                    <div class="secao-1 p-1 p-sm-3 p-md-4 p-lg-5">
+                        <div class="text-center col-12">
+                            <h2 class="index-h">FAQ - Perguntas frequentes</h2>
+                        </div>
+                        <div> 
+                            <a class="faq-button" href="#faq-1" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="faq-1">
+                                O QUE É?
+                            </a>
+                            <div class="collapse mx-3 card card-body" id="faq-1">
+                                É uma plataforma 100% digital para publicidade virtual de produtos e/ou serviços, patrocinadores, fornecedores, com interação via mídias sociais e ações de marketing voltadas ao crescimentos nas suas vendas.
+                            </div>
+                        </div>
+                        <div> 
+                            <a class="faq-button" href="#faq-2" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="faq-1">
+                                COMO FUNCIONA?
+                            </a>
+                            <div class="collapse mx-3 card card-body" id="faq-2">
+                                É muito simples, vivemos na era digital e assim nós empreendedores precisamos nos adequar as novas práticas, dessa forma aos nos contratar você conta com uma equipe que:
+                                <ol>
+                                    <li>Produzirá sua web página para exposição do seu empreendimento;</li>
+                                    <li>Construirá uma estratégia de marketing digital personalizada ao seu empreendimento;</li>
+                                    <li>Fornecerá relatórios para que você acompanhe o crescimento da exposição de seu empreendimento;</li>
+                                    <li>Inovará no seu relacionamento com clientes, fornecedores e colaboradores;</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div> 
+                            <a class="faq-button" href="#faq-3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="faq-1">
+                                QUAL O ALCANCE?
+                            </a>
+                            <div class="collapse mx-3 card card-body" id="faq-3">
+                                Você decide, sua cidade, seu estado... Nosso papel é te levar onde você quer chegar.                            
+                            </div>
+                        </div>
+                        <div> 
+                            <a class="faq-button" href="#faq-4" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="faq-1">
+                                QUAL O OBJETIVO?
+                            </a>
+                            <div class="collapse mx-3 card card-body" id="faq-4">
+                                Incluir, orientar, desenvolver e acompanhar o seu empreendimento por meio da publicidade digital.                            
+                            </div>
+                        </div>
+                        <div> 
+                            <a class="faq-button" href="#faq-5" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="faq-1">
+                               POR QUE DEVO CRIAR O MEU?
+                            </a>
+                            <div class="collapse mx-3 card card-body" id="faq-5">
+                                Descubra o perfil de seu cliente, esteja ao alcance dele 24hs por dia, alcance milhares de pessoas sem a necessidade de material gráfico impresso, conecte seu empreendimento ao mundo digital, inove, tenha mais informações para a tomada de decisão no dia-a-dia.                            
+                            </div>
+                        </div>
+                        <div> 
+                            <a class="faq-button" href="#faq-6" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="faq-1">
+                               COMO CRIAR O MEU?
+                            </a>
+                            <div class="collapse mx-3 card card-body" id="faq-6">                                 
+                                <a style="display: inline;" href="https://api.whatsapp.com/send?phone=5583993609556&text=Quero%20saber%20mais%20sobre%20o%20e-ncarte!">
+                                    Fale conosco no (83) 99360-9556.
+                                </a>                                
+                            </div>
+                        </div>                                                                         
+                        <div class="col-12 d-flex flex-nowrap justify-content-center">
+                            <a class="botao-contato" href="#" data-toggle="modal" data-target="#modalContato">Entre em contato</a>
+                        </div>                         
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <!-- MODAL CONTATO-->
+        <div class="modal" id="modalContato" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="https://api.whatsapp.com/send?phone=5583993609556&text=Quero%20saber%20mais%20sobre%20o%20e-ncarte!">
+                            <img class="whatsapp-botao" src="/img/util/whats001.webp" alt="">
+                            Entre em contato pelo Whatsapp
+                        </a>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Entre em contato pelo e-mail</h4>
+                        <form action="/contato" method="POST">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Nome</span>
+                                </div>
+                                <input name="nome" class="form-control" type="text">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">E-mail</span>
+                                </div>
+                                <input name="email" class="form-control" type="text">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Assunto</span>
+                                </div>
+                                <input name="assunto" class="form-control" type="text">
+                            </div>                    
+                            <div>Mensagem</div>
+                            <textarea name="mensagem" class="d-block form-control" cols="30" rows="5"></textarea>
+                            <div class="text-right">
+                                <button class="btn btn-info mt-2" type="submit">Enviar e-mail</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FIM MODAL CONTATO-->
+        <!--MODAL VIDEO-->
+          <div id="modalVideo" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/420411487" width="640" height="800" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!--FIM MODAL VIDEO-->
+    <%-include('partials/footer')%> 
+    <%-include('partials/bootstrapjs')%>
+    <script>
+        $(".faq-button").click(function(){
+            $(this).toggleClass("faq-button-collapsed");
+        }) 
+        //Para o vídeo quando o modal é fechado
+        $("#modalVideo").on('hidden.bs.modal', function (e) {
+            $("#modalVideo iframe").attr("src", $("#modalVideo iframe").attr("src"));
+        });
+    </script>
+</body>
+</html>
