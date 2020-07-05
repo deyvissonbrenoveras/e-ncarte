@@ -44,10 +44,7 @@ app.use((req, res, next) => { //Cria um middleware onde todas as requests passam
 });
 
 //Rotas estáticas
-app.use("/bootstrap", express.static("./bootstrap"));
-app.use("/styles", express.static("./styles"));
-app.use("/img", express.static("./img"));
-app.use("/scripts-frontend", express.static("./scripts-frontend"));
+app.use("/", express.static("./public"));
 //Rota site
 app.use("/", siteRouter);
 

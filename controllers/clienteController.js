@@ -1,6 +1,7 @@
 const Cliente = require("../models/Cliente");
 const User = require("../models/User");
 const fs = require("fs");
+const path = require("path");
 const imgController = require("./imgController");
 const CLIENTE_LOGO_FOLDER = imgController.CLIENTE_LOGO_FOLDER;
 const PRODUTO_IMG_FOLDER = require("./produtoController").PRODUTO_IMG_FOLDER;
@@ -11,8 +12,7 @@ const selecionar = async (req, res) => {
     let clientes = await Cliente.find()
     for (let client of clientes) {
         if (req.params.nomeUrl === client.nomeUrl) {
-            return res.render("cliente", {cliente: client, clientes, url: fullUrl})
-            
+            return res.render("cliente", {cliente: client, clientes, url: fullUrl})            
         }
     }
     res.render("cliente_nao_encontrado", { clientes })
