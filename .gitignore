@@ -1,5 +1,10 @@
 React/build
 React/node_modules
+public/img/logos
+public/img/parceiros
+public/img/produtos
+public/img/temp
+
 # Logs
 logs
 *.log
