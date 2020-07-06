@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/loja/static/js/main.e393cd16.chunk.js",
-    "main.js.map": "/loja/static/js/main.e393cd16.chunk.js.map",
+    "main.js": "/loja/static/js/main.016937ba.chunk.js",
+    "main.js.map": "/loja/static/js/main.016937ba.chunk.js.map",
     "runtime-main.js": "/loja/static/js/runtime-main.7ae83380.js",
     "runtime-main.js.map": "/loja/static/js/runtime-main.7ae83380.js.map",
     "static/js/2.337fd9e2.chunk.js": "/loja/static/js/2.337fd9e2.chunk.js",
     "static/js/2.337fd9e2.chunk.js.map": "/loja/static/js/2.337fd9e2.chunk.js.map",
     "index.html": "/loja/index.html",
-    "precache-manifest.bc6b79949b17e41d4ee1a9026e2f3da5.js": "/loja/precache-manifest.bc6b79949b17e41d4ee1a9026e2f3da5.js",
+    "precache-manifest.f6befcbc57c36bed02ef5f4c5f0020c8.js": "/loja/precache-manifest.f6befcbc57c36bed02ef5f4c5f0020c8.js",
     "service-worker.js": "/loja/service-worker.js",
     "static/js/2.337fd9e2.chunk.js.LICENSE.txt": "/loja/static/js/2.337fd9e2.chunk.js.LICENSE.txt",
     "static/media/logo.png": "/loja/static/media/logo.77b303cd.png",
@@ -16,6 +16,6 @@
   "entrypoints": [
     "static/js/runtime-main.7ae83380.js",
     "static/js/2.337fd9e2.chunk.js",
-    "static/js/main.e393cd16.chunk.js"
+    "static/js/main.016937ba.chunk.js"
   ]
 }

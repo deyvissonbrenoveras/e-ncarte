@@ -43,6 +43,7 @@ app.use((req, res, next) => { //Cria um middleware onde todas as requests passam
 
 //Rotas estáticas
 app.use("/", express.static("./public"));
+app.use("/loja/:nomeUrl", express.static("./React/build/index.html"));
 app.use("/loja", express.static("./React/build"));
 //Rota site
 app.use("/", siteRouter);

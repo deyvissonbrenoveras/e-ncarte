@@ -10,7 +10,7 @@
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Clientes</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">            
                         <% for (let cliente of clientes){%>
-                            <a id="<%=cliente.nomeUrl%>"class="dropdown-item" href="/cliente/<%=cliente.nomeUrl%>"><%=cliente.nome%></a>
+                            <a id="<%=cliente.nomeUrl%>"class="dropdown-item" href="/loja/<%=cliente.nomeUrl%>"><%=cliente.nome%></a>
                         <%}%> 
                 </div>
             </li>

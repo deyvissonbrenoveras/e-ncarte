@@ -10,7 +10,7 @@ import Carrinho from "./pages/Carrinho/index";
 export default function Routes(){
     return(
         <Switch>
-            <Route exact path="/loja" component={Loja}/>
+            <Route path="/loja/:nomeUrl" component={Loja}/>
             <Route path="/produto/:id" component={Produto}/>
             <Route path="/contato" component={Contato}/>
             <Route path="/carrinho" component={Carrinho}/>

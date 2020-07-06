@@ -7,15 +7,18 @@ const CLIENTE_LOGO_FOLDER = imgController.CLIENTE_LOGO_FOLDER;
 const PRODUTO_IMG_FOLDER = require("./produtoController").PRODUTO_IMG_FOLDER;
 const FILIADO_IMG_FOLDER = require("./filiadoController").FILIADO_IMG_FOLDER;
 
-const selecionar = async (req, res) => {
-    var fullUrl = "https" + '://' + req.get('host') + req.originalUrl;
-    let clientes = await Cliente.find()
-    for (let client of clientes) {
-        if (req.params.nomeUrl === client.nomeUrl) {
-            return res.render("cliente", {cliente: client, clientes, url: fullUrl})            
-        }
-    }
-    res.render("cliente_nao_encontrado", { clientes })
+const selecionarPorId = async (req, res) => {
+   const {nomeUrl} = req.params;
+   Cliente.findOne({nomeUrl}, (err, cliente)=>{
+       if (err){
+           console.log(err)
+           res.status(500).json({message: "Houve um erro ao consultar a loja"});
+       }
+       if (!cliente){
+           res.status(400).json({message: "A loja não foi encontrada"});
+       }
+       res.json(cliente);
+   })
 }
 
 const inserir = async (req, res) => {        
@@ -175,11 +178,8 @@ const validarPrivilegioUsuario = async (req, res, next)=>{
         return res.json(clientes);  
     })
 }
-const selecionarClientePeloId = (req, res) =>{
-    
-}
 module.exports = {
-    selecionar,
+    selecionarPorId,
     inserir,
     editar,
     excluir,
@@ -189,5 +189,4 @@ module.exports = {
 
     //REST API
     selecionarTodos,
-    selecionarClientePeloId
 }

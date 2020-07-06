@@ -37,20 +37,26 @@ class Loja extends Component{
         loading: true,
     }
     async componentDidMount(){
-        const response = await api.get("/cliente");
-        const {dispatch} = this.props;
-        let data = response.data[0];
-        console.log(response)
-        console.log(data)
-        if (data.produtos){
-            data.produtos = data.produtos.map(produto => ({
-                ...produto,
-                precoFormatado: formatarPreco(produto.preco)
-            }))
-        }
+        const {nomeUrl} = this.props.match.params;
+        api.get(`/cliente/${nomeUrl}`)
+        .then(response =>{
+            console.log(response.data)
+            const {dispatch} = this.props;
+            let data = response.data;
+            console.log(data)
+            if (data.produtos){
+                data.produtos = data.produtos.map(produto => ({
+                    ...produto,
+                    precoFormatado: formatarPreco(produto.preco)
+                }))
+            }            
+            this.setState({loja: data, produtosBuscaTemp: data, loading: false})
+            dispatch(addLoja(data));
+        })
+        .catch(error =>{
+            console.log(error)
+        })
         
-        this.setState({loja: data, produtosBuscaTemp: data, loading: false})
-        dispatch(addLoja(data));
     }
     handleAddProduto = (produto) =>{
         const {dispatch} = this.props;
