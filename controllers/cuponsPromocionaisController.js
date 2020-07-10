@@ -101,7 +101,7 @@ const inserirParticipante = async (req, res) => {
 
         await cliente.save();
 
-        return res.json({ message: "Seu cupom foi gerado, agora é só apresentar seu nome e e-mail no momento da compra!" });
+        return res.json({ message: "Cupom cadastrado com sucesso!" });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Houve um erro de servidor ao confirmar a sua participação na promoção :(" });
