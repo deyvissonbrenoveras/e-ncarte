@@ -18,12 +18,12 @@ const transporter = nodemailer.createTransport({
 
 const index = async (req, res)=>{
     let clientes = await Cliente.find();
-    res.render("index", {clientes})
+    res.render("index", {clientes, userLogado: req.user})
 }
 const contato = async (req, res)=>{ 
     try{
         let clientes = await Cliente.find();
-        return res.render("contato", {clientes, mensagemEnviada: false});
+        return res.render("contato", {clientes, userLogado: req.user, mensagemEnviada: false});
     }   
     catch(error){
         console.log(error);        
@@ -40,6 +40,7 @@ const contatoEnviarEmail = async (req, res)=>{
         text: contato.mensagem
     }).then(info=>{
         res.render("contato", {
+            userLogado: req.user,
             clientes,
             mensagemEnviada: true,
             erro: false,
@@ -48,6 +49,7 @@ const contatoEnviarEmail = async (req, res)=>{
     }).catch(error=>{
         console.log(error);
         res.render("contato", {
+            userLogado: req.user,
             clientes,
             mensagemEnviada: true,
             erro: true,

@@ -11,8 +11,7 @@ const selecionar = async (req, res) => {
     let clientes = await Cliente.find()
     for (let client of clientes) {
         if (req.params.nomeUrl === client.nomeUrl) {
-            return res.render("cliente", {cliente: client, clientes, url: fullUrl})
-            
+            return res.render("cliente", {cliente: client, userLogado: req.user, clientes, url: fullUrl})
         }
     }
     res.render("cliente_nao_encontrado", { clientes })

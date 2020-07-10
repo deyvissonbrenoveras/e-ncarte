@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const loginPage = (req, res)=>{
-    res.render("login");
+    res.render("login", {userLogado: req.user});
 }
 const login = async (req, res)=>{
     try {
@@ -20,10 +20,10 @@ const login = async (req, res)=>{
                 return res.status(400).json({message: "Usuário ou senha incorreto(a)"}); 
             token = jwt.sign({_id: selectedUser._id}, process.env.TOKEN_SECRET);
         }
-        
-        res.header("authorization-token", token);
-        res.json({message: "Usuário autenticado"});
+        res.cookie("authorization-token", token);
+        return res.json({message: "Usuário autenticado"});
     } catch (error) {
+        console.log(error)
         res.status(500).json({message: "Houve um erro ao fazer o login"});
     }
     
@@ -118,7 +118,10 @@ const validarPrivilegioUsuario = async (req, res, next)=>{
         return res.status(403).json({message: "O usuário não tem permissão para a ação"}); 
 
  }
-
+const logout = async (req, res)=>{
+    res.clearCookie("authorization-token");
+    res.redirect("/admin");
+}
 module.exports = {
     loginPage,
     login,
@@ -127,5 +130,6 @@ module.exports = {
     validar,
     editarClientesLiberados,
     excluir,
-    validarPrivilegioUsuario
+    validarPrivilegioUsuario,
+    logout
 }

@@ -467,9 +467,6 @@ function login(){
     }
     fetch("/user/login", options).then(res=>{
         if (res.status == 200){
-            let token = res.headers.get("authorization-token");
-            // document.cookie = `authorization-token=${token};path=/admin`;
-            document.cookie = `authorization-token=${token};`;
             document.location.href = document.location.origin + "/admin";
         }
         else{

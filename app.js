@@ -3,6 +3,7 @@ const path = require("path");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require('cors');
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 //Require Rotas
@@ -21,6 +22,9 @@ const auth = require("./controllers/authController");
 app.use(cors({
     origin: "*"
 }))
+
+app.use(cookieParser());
+
 //Mongodb
 mongoose.connect(process.env.DB_CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true },
     (error)=>{

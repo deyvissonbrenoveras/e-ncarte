@@ -4,6 +4,7 @@ const userController = require("../controllers/userController");
 const auth = require("../controllers/authController");
 
 router.get("/login", userController.loginPage);
+router.get("/logout", userController.logout);
 router.post("/login", userController.login);
 router.post("/", auth.autenticacaoAPI, userController.validarPrivilegioUsuario, userController.validar, userController.inserir);
 router.put("/", auth.autenticacaoAPI, userController.validarPrivilegioUsuario, userController.validar, userController.editar);
