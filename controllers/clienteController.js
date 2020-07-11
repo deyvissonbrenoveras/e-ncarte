@@ -14,7 +14,7 @@ const selecionar = async (req, res) => {
             return res.render("cliente", {cliente: client, userLogado: req.user, clientes, url: fullUrl})
         }
     }
-    res.render("cliente_nao_encontrado", { clientes })
+    res.render("cliente_nao_encontrado", { clientes, userLogado: req.user, })
 }
 
 const inserir = async (req, res) => {        
