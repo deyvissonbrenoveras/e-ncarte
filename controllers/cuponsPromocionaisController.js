@@ -10,7 +10,13 @@ async function encerrarCampanhasExpiradas() {
         let clientes = await Cliente.find({});
         await clientes.forEach((cliente) => {
             cliente.cuponsPromocionais.forEach((campanha) => {
-                if (campanha.periodoFim < Date.now()) {
+                let hoje = new Date();
+                const dia = hoje.getDate();
+                const mes = hoje.getMonth();
+                const ano = hoje.getFullYear();
+                hoje = new Date(ano, mes, dia);
+
+                if (campanha.periodoFim < hoje) {
                     campanha.ativa = false;
                 }
             });
