@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-4">
                 <a href="/admin/editarcampanhacuponsativa?idCliente=<%= cliente._id %>&idCampanha=<%= campanha._id %>"><i class="fas fa-long-arrow-alt-left fa-3x"></i></a>
-                <% if(opcaoPersonalizada.ativa){ %>
+                <% if(campanha.ativa){ %>
                     <h3>Editar opção personalizada</h3>
                 <% } else{ %>
                     <h3>Opção personalizada</h3>
@@ -24,7 +24,7 @@
                     <input type="text" class="d-none" name="idOpcao" value="<%= opcaoPersonalizada._id %>">
                     <div class="form-group">
                         <h5>Descrição</h5>
-                        <input id="descricao" type="text" name="descricao" class="form-control" value="<%= opcaoPersonalizada.descricao %>" <%= opcaoPersonalizada.ativa ? "" : "disabled"%>>
+                        <input id="descricao" type="text" name="descricao" class="form-control" value="<%= opcaoPersonalizada.descricao %>" <%= campanha.ativa ? "" : "disabled"%>>
                     </div>
                     <div class="form-group">
                         <h5>Quantidade disponível</h5>
@@ -32,8 +32,7 @@
                     </div>
                     <div>Quantidade utilizada: <%= opcaoPersonalizada.quantidadeUtilizada %></div>
                 </form>
-                <% if(opcaoPersonalizada.ativa){ %>
-                    <button id="encerrarOpcaoButton" class="btn btn-danger m-1" onclick="clickHandle(this.id)">Encerrar Opção</button>
+                <% if(campanha.ativa){ %>
                     <button id="salvarButton" class="btn btn-success m-1" onclick="clickHandle(this.id)">Salvar</button>
                 <% } %>
             </div>

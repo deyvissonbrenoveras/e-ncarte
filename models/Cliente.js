@@ -33,9 +33,8 @@ const codigoSchema = new mongoose.Schema({
 })
 const opcaoPersonalizadaSchema = new mongoose.Schema({
     descricao: {type: String, required: true},
-    quantidadeDisponivel: {type: Number, required: true},
+    quantidadeDisponivel: {type: Number},
     quantidadeUtilizada: {type: Number, default: 0},
-    ativa: {type: Boolean, default: true},
     codigos: [codigoSchema]
 })
 

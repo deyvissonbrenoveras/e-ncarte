@@ -1,7 +1,6 @@
 const Cliente = require("../models/Cliente");
 const scheduler = require("node-schedule");
 var voucher_codes = require('voucher-code-generator');
-var emailValidator = require("email-validator");
 const fs = require("fs");
 const xlsx = require("xlsx");
 const { response } = require("express");
@@ -71,8 +70,8 @@ const inserirParticipante = async (req, res) => {
             return res.status(400).json({ message: "Por favor insira um nome" });
 
         //Valida e-mail
-        if (!emailValidator.validate(participante.email))
-            return res.status(400).json({ message: "O e-mail informado é inválido :(" });
+        if (!participante.email)
+            return res.status(400).json({ message: "Por favor insira um e-mail" });
 
         
         let validarEmail = promocao.participantes.filter(part => {
@@ -80,27 +79,29 @@ const inserirParticipante = async (req, res) => {
         })
         if (validarEmail.length > 0)
             return res.status(400).json({ message: "O e-mail informado já está participando da promoção, por favor, insira outro e-mail." });
-        
         //Valida o código promocional
-        if (participante.opcaoPersonalizada){
-
-            const opcao = promocao.opcoesPersonalizadas.filter(opcaoPersonalizada => {
-                return opcaoPersonalizada._id.equals(participante.opcaoPersonalizada)
-            })[0];
-
-            if (!opcao){
-                return res.status(500).json({ message: "Houve um erro de servidor ao confirmar a sua participação na promoção :(" });
+        if (promocao.opcoesPersonalizadas && promocao.opcoesPersonalizadas.length > 0){
+            if (!participante.codigo){
+                return res.status(500).json({ message: "Por favor insira o cupom" });
             }
-            const codigoPromocional = opcao.codigos.filter(codigo => {
-                return codigo.codigo == participante.codigo;
-            })[0]
-
-            if (!codigoPromocional){
-                return res.status(500).json({ message: "O cupom informádo é inválido :(" });
+            let cupomValido = false;
+            promocao.opcoesPersonalizadas.forEach(opcao =>{
+                opcao.codigos.forEach(codigo => {
+                    if (codigo.codigo == participante.codigo){
+                        if (codigo.resgatado){
+                            return res.status(500).json({ message: "O cupom informado já foi resgatado :(" });
+                        }
+                        codigo.resgatado = true;
+                        opcao.quantidadeUtilizada++; 
+                        participante.opcaoPersonalizada = opcao._id;                       
+                        cupomValido = true;
+                    }
+                })
+            })
+            if (!cupomValido){
+                return res.status(500).json({ message: "O cupom informado é inválido :(" });
             }
-            if (codigoPromocional.resgatado)
-                return res.status(500).json({ message: "O cupom informádo já foi resgatado :(" });
-            codigoPromocional.resgatado = true;
+            participante.cupomResgatado = true;
         }
         let novoParticipante = promocao.participantes.create(participante);
         promocao.participantes.push(novoParticipante);
@@ -132,14 +133,6 @@ const resgatarCupom = async (req, res) => {
                         cuponsResgatados++;
                     if (participante._id == idParticipante) {
                         participante.cupomResgatado = true;
-
-                        //Se houver opção personalizada, incrementa em 1 a quantidade utilizada
-                        if (participante.opcaoPersonalizada) {
-                            campanha.opcoesPersonalizadas.forEach(opcao => {
-                                if (opcao._id.equals(participante.opcaoPersonalizada))
-                                    opcao.quantidadeUtilizada++;
-                            })
-                        }
                     }
                 })
                 if (cuponsResgatados >= campanha.quantidadeCupons & campanha.quantidadeCupons != 0) {
@@ -270,38 +263,17 @@ const editarOpcaoPersonalizada = (req, res) => {
         if (!campanha || !opcao)
             return res.render("erro", { erro: "Campanha ou opção personalizada não encontrada" })
         opcao.descricao = req.body.descricao;
-        opcao.quantidadeDisponivel = req.body.quantidadeDisponivel;
         cliente.save(err => {
-            if (err)
+            if (err){
+                console.log(err)
                 return res.render("erro", { erro: "Houve um erro interno ao atualizar a opção personalizada" })
+            }
             return res.redirect("back")
         })
 
     })
 }
-const excluirOpcaoPersonalizada = (req, res)=>{
-    const { idCliente, idCampanha, idOpcao } = req.body;
 
-    Cliente.findOne({ _id: idCliente }, (err, cliente) => {
-        if (err) {
-            console.log(err)
-            return res.render("erro", { erro: "Houve um erro interno ao excluir a opção personalizada" })
-        }
-        if (!cliente)
-            return res.render("erro", { erro: "Cliente não encontrado" })
-        let campanha = cliente.cuponsPromocionais.filter(campanha => campanha._id.equals(idCampanha))[0];
-        let opcao = campanha.opcoesPersonalizadas.filter(opcao => opcao._id == idOpcao)[0];
-        if (!campanha || !opcao)
-            return res.render("erro", { erro: "Campanha ou opção personalizada não encontrada" })
-        opcao.ativa = false;
-        cliente.save(err => {
-            if (err)
-                return res.render("erro", { erro: "Houve um erro interno ao encerrar a opção personalizada" })
-            return res.redirect("back")
-        })
-
-    })
-}
 const downloadPlanilhaParticipantes = (req, res)=>{
     const {idCliente, idCampanha} = req.query;
     Cliente.findById(idCliente, (err, cliente)=>{
@@ -413,7 +385,6 @@ module.exports = {
     validarPrivilegioUsuario,
     novaOpcaoPersonalizada,
     editarOpcaoPersonalizada,
-    excluirOpcaoPersonalizada,
     downloadPlanilhaParticipantes,
     downloadPlanilhaCodigos
 }

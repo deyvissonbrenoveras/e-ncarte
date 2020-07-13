@@ -180,30 +180,12 @@ function convertDate(date){
                                    </div>
                                    <input type="text" id="participanteEmail" class="form-control" placeholder="Insira seu E-mail aqui">
                                </div>
-                               <%
-                               //Verifica se tem alguma opção ativa e com cupons disponiveis para exibir o select
-                               let promocoesAtivas = promocao.opcoesPersonalizadas.filter(opc => {
-                                   return (opc.ativa && opc.quantidadeUtilizada < opc.quantidadeDisponivel)
-                               });
-                               if (promocao.opcoesPersonalizadas && promocoesAtivas.length > 0){
-                               %>                                                
+                               <% if (promocao.opcoesPersonalizadas && promocao.opcoesPersonalizadas.length > 0){ %>                                                
                                    <div class="input-group mb-3">
                                        <div class="input-group-prepend">
                                            <span class="input-group-text">Código promocional</span>
                                        </div>
                                        <input type="text" id="participanteCodigo" class="form-control" placeholder="Insira o código aqui">
-                                   </div>
-                                   <div class="input-group mb-3">
-                                       <div class="input-group-prepend">
-                                           <span class="input-group-text">Selecione uma opção</span>
-                                       </div> 
-                                       <select class="custom-select" name="opcaoPersonalizada" id="opcaoPersonalizada">
-                                           <% promocao.opcoesPersonalizadas.forEach(opcaoPersonalizada=>{ 
-                                               if (opcaoPersonalizada.ativa && (opcaoPersonalizada.quantidadeUtilizada < opcaoPersonalizada.quantidadeDisponivel)) {%>
-                                                   <option value="<%= opcaoPersonalizada._id %>"><%= opcaoPersonalizada.descricao %></option>
-                                               <% } %>                                                            
-                                           <% }) %>
-                                       </select>
                                    </div>
                                <% } %>                                           
                            </div>

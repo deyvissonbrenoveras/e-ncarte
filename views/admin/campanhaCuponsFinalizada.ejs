@@ -54,7 +54,6 @@
                             <th>Opção</th>
                             <th>Qtd Utilizada</th>
                             <th>Qtd Máxima</th>
-                            <th>Ativa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,12 +62,6 @@
                                 <td><%= opcaoPersonalizada.descricao %></td>
                                 <td><%= opcaoPersonalizada.quantidadeUtilizada %></td>                  
                                 <td><%= opcaoPersonalizada.quantidadeDisponivel %></td>   
-                                <td><% if (opcaoPersonalizada.ativa) { %>
-                                    <i style="color: green;" class="fas fa-check"></i>
-                                <% } else { %>
-                                    <i style="color: red;" class="fas fa-times red"></i>
-                                <% } %>
-                                </td> 
                             </tr>
                         <% }) %>
                         
