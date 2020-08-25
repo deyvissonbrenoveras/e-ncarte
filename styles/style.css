@@ -229,7 +229,8 @@ body{
 }
 .produto-img{
     position: relative;
-    height: 70%;
+    max-width: 70%;
+    max-height: 70%;
 }
 .produto-destaque-img{
     position: relative;
@@ -307,7 +308,8 @@ body{
    line-height: 8px;
 }
 .produto-img-modal {
-    height: 40vh;
+    max-width: 40vw;
+    max-height: 40vh;
 }
 .img-filiado{
     max-width: 80px;
