@@ -189,19 +189,21 @@ body{
     to{left: 0;}
 }
 #area-central{
+    overflow: hidden;
     min-height: 900px;
     background-color: white;
     border-radius: 10px;
     animation: aparecerDireita 500ms ease-out;
     border-right: 30px;
+    padding-bottom: 20px;
 }
 @keyframes aparecerCima{
     from{top: 1000px;}
     to{top:0px;}
 }
 .produto{
-    width: 40px;
-    height: 45px;
+    width: 50px;
+    height: 70px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; 
@@ -210,11 +212,11 @@ body{
     animation-delay: 550ms;
     animation-timing-function: ease-out;
     animation-fill-mode: backwards;
-    position: relative;  
+    position: relative; 
 }
 .produto-destaque{
-    width: 90px;
-    height: 80%;
+    width: 80px;
+    height: 100px;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat; 
@@ -227,13 +229,11 @@ body{
 }
 .produto-img{
     position: relative;
-    width: 25px;
-    height: 25px;
+    height: 70%;
 }
 .produto-destaque-img{
     position: relative;
-    width: 50px;
-    height: 50px;
+    height: 50%;
 }
 .produto:hover, .produto-destaque:hover{
     top: -10px;
@@ -245,22 +245,24 @@ body{
                 0px 1px white,
                 0px -1px white;
     font-style: italic;
-    font-size: 0.5em;
+    font-size: 10px;
     font-weight: bold;
-    position: relative;     
     background-color: yellow;
     border-radius: 3px; 
     transform: skew(-10deg);
-    width: 20px;
+    width: 100%;
+    max-width: 40px;
     z-index: 1;
-    left: 18px;
-    bottom: 12px;
+    margin: 2px auto;
 }
 .produto-destaque-preco{ 
-    width: 35px;
-    font-size: 1em;    
-    left: 50px;
-    bottom: 26px;
+    width: 100%;
+    max-width: 60px;
+    text-align: center;
+    /* width: 35px; */
+    font-size: 15px;    
+    /* left: 50px;
+    bottom: 26px; */
     color:red;
     text-shadow: 1px 0px white,
                 -1px 0px white,
@@ -268,43 +270,44 @@ body{
                 0px -1px white;
     font-style: italic;
     font-weight: bold;
-    position: relative;     
+    /* position: relative;      */
     background-color: yellow;
     background-size: contain;
     border-radius: 3px; 
     transform: skew(-10deg);
     z-index: 1;
+    margin: 2px auto;
 }
 
 .produto-desc{
-    width: 35px;
+    width: 100%;
     font-weight: bolder;
-    font-size: 3px;
+    font-size: 6px;
+    line-height: 6px;
     text-shadow: 1px 0px white,
                 -1px 0px white,
                 0px 1px white,
                 0px -1px white;
-   position: relative;
    z-index: 1;
    margin: auto;
-   bottom: -5px;
     
 }
 .produto-destaque-desc{
-    width: 80px;
-    font-size: 0.4em;
-    bottom: -15px;
+    width: 100%;
+    font-size: 0.5em;
+    /* bottom: -15px; */
     font-weight: bolder;
     text-shadow: 1px 0px white,
                 -1px 0px white,
                 0px 1px white,
                 0px -1px white;
-   position: relative;
+   /* position: relative; */
    z-index: 1;
-   margin: auto;
+   text-align: center;
+   line-height: 8px;
 }
 .produto-img-modal {
-    width: 80%;
+    height: 40vh;
 }
 .img-filiado{
     max-width: 80px;
@@ -339,8 +342,8 @@ body{
     font-size: 1.5em;
 }
 .share-btn{
-    width: 40px;
-    margin: 5px;
+    width: 30px;
+    margin: 2px;
 }
 @keyframes aparecerEsquerda{
     from{background-color:gray; right: 1000px;}
@@ -484,41 +487,27 @@ footer a{
     }
     .produto{
         width: 80px;
-        height: 80px; 
-    }
-    .produto-img{
-        width: 50px;
-        height: 50px;
+        height: 100px;
     }
     .produto-preco{
-        width: 20px;
-        font-size: 0.7em;
-        bottom: 30px;
-        left: 50px;
+        font-size: 14px;        
+        max-width: 60px;
     }
     .produto-desc{
-        font-size: 5px;
-        width: 50px;
+        font-size: 8px;
+        line-height: 8px;
     }
-    .produto-destaque{
-        right: 25px;
-        width: 150px;  
-        height: 125px;     
-    }
-    .produto-destaque-img{
-        width: 70px;
-        height: 70px;
-        
+    .produto-destaque{         
+        width: 140px;
+        height: 160px;   
     }
     .produto-destaque-preco{
-        width: 35px;
-        font-size: 1em;
-        bottom: 40px;
-        left: 88px;
+        font-size: 18px;
+        max-width: 70px;
     }
     .produto-destaque-desc{
-        font-size: 0.5em;
-        width: 100px;
+        font-size: 10px;
+        line-height: 10px;
     }
     .img-filiado{
         max-width: 100px;
@@ -544,42 +533,20 @@ footer a{
     #cliente-nome{
         font-size: 2em;
     }
-    .produto{
-        width: 100px;
-        height: 100px; 
+    .share-btn{
+        width: 40px;
     }
-    .produto-img{
-        width: 70px;
-        height: 70px;
-    }
-    .produto-preco{
-        width: 30px;
-        font-size: 1em;
-        bottom: 40px;
-        left: 60px;
-    }
-    .produto-desc{
-        font-size: 0.5em;
-        width: 90px;
-    }
-    .produto-destaque{
-        width: 200px;  
-        height: 150px;     
-    }
-    .produto-destaque-img{
-        width: 100px;
-        height: 100px;
-        
+    .produto-destaque{         
+        width: 180px;
+        height: 200px;   
     }
     .produto-destaque-preco{
-        width: 50px;
-        font-size: 1.5em;
-        bottom: 55px;
-        left: 125px;
+        font-size: 20px;
+        max-width: 90px;
     }
     .produto-destaque-desc{
-        font-size: 0.8em;
-        width: 150px;
+        font-size: 13px;
+        line-height: 13px;
     }
     .promocao {
         font-size: 1em;
@@ -603,6 +570,26 @@ footer a{
     #area-index-1{
         padding-top: 100px;
     }
+    .produto{
+        width: 100px;
+        height: 120px;
+    }
+    .produto-preco{
+        font-size: 18px;        
+        max-width: 70px;
+    }
+    .produto-desc{
+        font-size: 10px;
+        line-height: 10px;
+    }
+    .produto-destaque-preco{
+        font-size: 25px;
+        max-width: 95px;
+    }
+    .produto-destaque-desc{
+        font-size: 15px;
+        line-height: 15px;
+    }
     
  }
 @media (min-width: 1200px) {     
@@ -610,41 +597,24 @@ footer a{
         font-size: 3em;
     }
     .produto{
-        width: 150px;
-        height: 160px; 
     }
     .produto-img{
-        width: 95px;
-        height: 95px;
+
     }
     .produto-preco{
-        width: 50px;
-        font-size: 1.5em;
-        bottom: 60px;
-        left: 95px;
     }
     .produto-desc{
-        font-size: 0.8em;
-        width: 150px;
-        bottom: -15px;
     }
-    .produto-destaque{
-        width: 250px;  
-        height: 180px; 
-    }
-    .produto-destaque-img{
-        width: 130px;
-        height: 130px;
-        
+    .produto-destaque{         
+        width: 200px;
+        height: 220px;   
     }
     .produto-destaque-preco{
-        width: 80px;
-        font-size: 2em;
-        bottom: 63px;
-        left: 160px;
+        font-size: 30px;
+        max-width: 125px;
     }
     .produto-destaque-desc{
-        font-size: 0.8em;
-        width: 200px;
+        font-size: 20px;
+        line-height: 20px;
     }
  }

@@ -80,7 +80,7 @@ function convertDate(date){
                             </div>                               
                         <% } %>
                         <img class="cliente-campanha my-3 mx-auto" src="/img/logos/<%=cliente.imagemCampanha%>" alt="<%=cliente.nome%>">
-                        <div class="col-12 col-md-6 ml-auto my-5">
+                        <div class="col-12 col-md-6 ml-auto my-2 my-md-5">
                             <a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>"><img class="share-btn" src="/img/util/bc-fb.png" alt=""></a>
                             <a href="https://twitter.com/intent/tweet?url=<%= url %>"><img class="share-btn" src="/img/util/bc-tw.png" alt=""></a>
                             <a href="https://api.whatsapp.com/send?text=<%= url %>"><img class="share-btn" src="/img/util/bc-whats.png" alt=""></a>
@@ -91,33 +91,33 @@ function convertDate(date){
                     </div>                    
                     <!--INÍCIO PRODUTOS-->
                         <!-- PRODUTOS EM DESTAQUE-->
-                        <div class="row mr-1 justify-content-around">
+                        <div class="row justify-content-around">
                             <%for (let produto of cliente.produtos){
                                 if (produto.destaque){%>
-                                    <div class="col-4 col-sm-3">  
-                                        <div class="text-center produto-destaque" onclick="showModalProdutos(this)">
+                                    <div class="col-4 col-sm-3 mt-2">  
+                                        <div class="text-center produto-destaque mx-auto" onclick="showModalProdutos(this)">
                                             <img src="/img/produtos/<%=produto.imagem%>" class="produto-destaque-img">
-                                            <p class="produto-destaque-desc"><%=produto.descricao%></p>
                                             <% if (produto.preco != 0 ) { %>
                                                 <h2 class ="produto-destaque-preco"><%=mudarCasaDecimal(produto.preco, 2, "", ".", ",");%></h2>
-                                            <% } %>    
-                                            </div>
+                                            <% } %>  
+                                            <p class="produto-destaque-desc"><%=produto.descricao%></p>  
+                                        </div>
                                     </div>
                                 <%}                            
                             }%>
                         </div>
                         <!-- PRODUTOS -->
-                        <div class="row mr-1 mt-2 justify-content-around">
+                        <div class="row mt-2 justify-content-around">
                             <%for (let produto of cliente.produtos){
                                 if (!produto.destaque){%>
-                                    <div class="col-2">  
-                                        <div class="text-center produto" onclick="showModalProdutos(this)">
+                                    <div class="col-3 col-md-2 mt-4 mt-md-5">  
+                                        <div class="text-center produto mx-auto" onclick="showModalProdutos(this)">
                                             <img src="/img/produtos/<%=produto.imagem%>" class="produto-img">
-                                            <p class="produto-desc"><%=produto.descricao%></p>
                                             <% if (produto.preco != 0 ) { %>
                                                 <h2 class ="produto-preco"><%=mudarCasaDecimal(produto.preco, 2, "", ".", ",");%></h2>
                                             <% } %> 
-                                            </div>
+                                            <p class="produto-desc"><%=produto.descricao%></p>
+                                        </div>
                                     </div>
                                 <%}                             
                             }%>
@@ -243,10 +243,9 @@ function convertDate(date){
         function showModalProdutos(element){
             $("#modalProdutos").modal();
             let produtoDesc = element.children[0].value;
-            console.log(element.children[0])
-            document.getElementById("modalTitle").innerHTML = element.children[1].innerHTML;
+            document.getElementById("modalTitle").innerHTML = element.children[2].innerHTML;
             document.getElementById("modalImg").src = element.children[0].src;
-            document.getElementById("modalPreco").innerHTML = `Preço: ${element.children[2].innerHTML}`;
+            document.getElementById("modalPreco").innerHTML = `Preço: ${element.children[1].innerHTML}`;
         }
         options = {
             delay: 2000,
