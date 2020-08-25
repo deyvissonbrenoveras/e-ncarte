@@ -243,9 +243,19 @@ function convertDate(date){
         function showModalProdutos(element){
             $("#modalProdutos").modal();
             let produtoDesc = element.children[0].value;
-            document.getElementById("modalTitle").innerHTML = element.children[2].innerHTML;
+
+            //Verifica se o produto possui o preço ou é oferta especial para exibição do modal
+            if (element.children[2])
+                document.getElementById("modalTitle").innerHTML = element.children[2].innerHTML;
+            else
+                document.getElementById("modalTitle").innerHTML = element.children[1].innerHTML;
+
             document.getElementById("modalImg").src = element.children[0].src;
-            document.getElementById("modalPreco").innerHTML = `Preço: ${element.children[1].innerHTML}`;
+
+            if (element.children[1].nodeName == 'H2')
+                document.getElementById("modalPreco").innerHTML = `Preço: ${element.children[1].innerHTML}`;
+            else
+                document.getElementById("modalPreco").innerHTML = ""
         }
         options = {
             delay: 2000,
