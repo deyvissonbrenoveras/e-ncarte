@@ -11,6 +11,6 @@ router.delete("/", auth.autenticacaoAPI, clienteController.validarPrivilegioUsua
 
 
 //REST API
-router.get("/", clienteController.selecionarTodos);
+// router.get("/", clienteController.selecionarTodos);
 // router.get("/porid/:id", clienteController.selecionarClientePeloId);
 module.exports = router;
