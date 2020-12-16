@@ -343,7 +343,7 @@ body{
     /* flex: 1; */
 }
  .produto-cardapio{
-     
+     word-wrap: break-word;
 }
 .preco-cardapio {    
    font-weight: 600;
