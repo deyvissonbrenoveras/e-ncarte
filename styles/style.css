@@ -307,9 +307,48 @@ body{
    text-align: center;
    line-height: 8px;
 }
+.cardapio {
+    background: #f5e8df;
+    padding: 15px;
+    border-radius: 4px;
+}
+.cardapio hr {
+    margin-top: 0;
+}
+
+.cabecalho-cardapio {
+    color:  #ffa365;
+    background-color: #000;
+    border-radius: 25px 0 25px 0;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+.cabecalho-cardapio div {
+    border: 1px solid #fff;
+}
 .produto-img-modal {
     max-width: 40vw;
     max-height: 40vh;
+}
+.cardapio ul {
+    list-style: none;
+}
+.cardapio li {
+   margin-top: 10px;
+   /* display: flex; */
+}
+.dots {    
+    border-bottom: dotted 2px black;    
+    width: 100%;
+    /* flex: 1; */
+}
+ .produto-cardapio{
+     
+}
+.preco-cardapio {    
+   font-weight: 600;
+   display: flex;
+   align-items: flex-end;
 }
 .img-filiado{
     max-width: 80px;
